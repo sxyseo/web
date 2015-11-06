@@ -1,0 +1,30 @@
+<a href="#" id="filelink" draggable="true" data-downloadurl="
+    application/octet-stream
+    :SavedFileName.png
+    :https://www.google.com.hk/images/srpr/logo4w.png">DragMeToDownload</a>
+
+<a href="#" id="filelink2" draggable="true" data-downloadurl="
+    application/octet-stream
+    :SavedFileName.png
+    :data:image/png;base64,iVBORw0KGgoAA
+AANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAABlBMVEUAAAD///+l2Z/dAAAAM0l
+EQVR4nGP4/5/h/1+G/58ZDrAz3D/McH8yw83NDDeNGe4Ug9C9zwz3gVLMDA/A6
+P9/AFGGFyjOXZtQAAAAAElFTkSuQmCC">DragMeToDownload Pic</a>
+
+<script>
+var file = document.getElementById("filelink");
+
+// 在链接拖拽开始时设置数据
+file.addEventListener("dragstart", function(e){
+  var url = e.target.getAttribute('data-downloadurl')
+  e.dataTransfer.setData("DownloadURL", url);
+},false);
+
+var file2 = document.getElementById("filelink2");
+
+// 在链接拖拽开始时设置数据
+file2.addEventListener("dragstart", function(e){
+  var url = e.target.getAttribute('data-downloadurl')
+  e.dataTransfer.setData("DownloadURL", url);
+},false);
+</script>

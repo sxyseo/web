@@ -1,0 +1,12 @@
+<meta charset='utf8'>
+<div contextmenu="mymenu">
+    右键点击这里，可以分享页面到两大微博
+</div>
+
+<menu type="context" id="mymenu">
+    <menuitem label="刷新页面" onclick="window.location.reload();"></menuitem>
+    <menu label="分享本页面到…">
+        <menuitem label="新浪微博" icon="http://www.sinaimg.cn/blog/developer/wiki/LOGO_24x24.png" onclick="window.open('http://service.weibo.com/share/share.php?title=' + document.title + '&url=' + window.location.href);"></menuitem>
+        <menuitem label="腾讯微博" icon="http://v.t.qq.com/share/images/s/weiboicon16.png" onclick="window.open('http://share.v.t.qq.com/index.php?c=share&a=index&title=' + document.title + '&url=' + window.location.href);"></menuitem>
+    </menu>
+</menu>

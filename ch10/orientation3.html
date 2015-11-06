@@ -1,0 +1,24 @@
+<script>
+window.addEventListener('orientationchange', function() {
+  var displayStr = "Orientation : "
+  switch (window.orientation) {
+    case 0:
+      // 竖屏
+      displayStr += "Portrait"
+      break
+    case -90:
+      // 向右横屏
+      displayStr += "Landscape (right, screen turned clockwise)"
+      break
+    case 90:
+      // 向左横屏
+      displayStr += "Landscape (left, screen turned counterclockwise)"
+      break
+    case 180:
+      // 竖屏（倒着）
+      displayStr += "Portrait (upside-down portrait)"
+      break
+  }
+  console.log(displayStr)
+}, false)
+</script>

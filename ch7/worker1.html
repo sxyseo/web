@@ -1,0 +1,42 @@
+<script>
+var todos = […]
+for (var i = 0; i < todos.length; i++) {
+  process(todos[i])
+}
+</script>
+
+<script>
+var todos = […]
+setTimeout(function () {
+  // 取出 todos 的第一个元素进行执行
+  process(todos.shift())
+  // 如果还有需要处理的元素，25ms 后再处理，给 UI 线程留一点喘息的时间
+  if (todos.length > 0) {
+    setTimeout(arguments.callee, 25)
+  } else {
+    doneCallback()
+  }
+})
+</script>
+
+<script>
+function saveDocument (docId) {
+  openDocument(docId)
+  changeDocument(docId)
+  closeDocument(docId)
+  updateUI(docId)
+}
+</script>
+
+<script>
+function saveDocument (docId) {
+  var tasks = [openDocument, changeDocument, closeDocument, updateUI]
+  setTimeout(function () {
+    var nextTask = tasks.shift()
+    nextTask(docId)
+    if (tasks.length) {
+      setTimeout(arguments.callee, 25)
+    }
+  })
+}
+</script>

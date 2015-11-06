@@ -1,0 +1,16 @@
+<!-- 我们在制作游戏时可能会初始化一个太空船，我们需要存储它的编号（id）、武器、防护罩、坐标 -->
+<div class="spaceship" data-ship-id="92432"
+     data-weapons="laser 2" data-shields="50%"
+     data-x="30" data-y="10" data-z="90">
+ <button class="fire">
+  开火
+ </button>
+</div>
+
+<article id="a-1" data-created-time="2012-12-21">
+  data-属性很性感，本例在所有浏览器下都可以运行。
+</article>
+<script type="text/javascript">
+  var el = document.getElementById('a-1')
+  console.log(el.getAttribute('data-created-time')) // "2012-12-21"
+</script>

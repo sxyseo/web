@@ -1,0 +1,10 @@
+<div>
+我是一个 iframe，<br>
+我可能接收到的信息是：<span id="msg"></span>
+</div>
+<script>
+  window.addEventListener('message', function (e) {
+    document.getElementById('msg').innerHTML = e.data  // hello there
+    e.source.postMessage('我收到你的消息了！', e.origin)
+  })
+</script>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>hello map</title>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <style>
+  html, body, #map-canvas {
+    margin: 0;
+    padding: 0;
+    /* 让地图默认充斥你的页面 */
+    height: 100%;
+  }
+  </style>
+</head>
+<body>
+  <div id="map-canvas"></div>
+  <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+  <script>
+  function initialize() {
+    var mapOptions = {
+      // 缩放级别
+      zoom: 8,
+      // google.maps.LatLng 代表着地球上的一个点，传入经纬度构建
+      // 通过 center 将地图中心设为指定的点
+      center: new google.maps.LatLng(39.906, 116.391),
+      // ROADMAP 是最基本的地图类型，包含二维道路等内容。
+      // 此外还有卫星图、地形图等类型。
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    // 调用 google.maps.Map 构造一个地图实例
+    var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions)
+  }
+  initialize()
+  </script>
+</body>
+</html>

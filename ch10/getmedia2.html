@@ -1,0 +1,25 @@
+<video></video>
+<img>
+<canvas></canvas>
+<script>
+var video = document.querySelector('video')
+var canvas = document.querySelector('canvas')
+var ctx = canvas.getContext('2d')
+var localMediaStream = null
+
+function snapshot() {
+  if (localMediaStream) {
+    // drawImage方法可以直接绘制video的当前帧
+    ctx.drawImage(video, 0, 0)
+    // 将canvas当前绘制的内容转换成DataURL
+    document.querySelector('img').src = canvas.toDataURL('image/webp')
+  }
+}
+// 点击拍照！
+video.addEventListener('click', snapshot, false)
+
+navigator.webkitGetUserMedia({video: true}, function(stream) {
+  video.src = window.URL.createObjectURL(stream)
+  localMediaStream = stream
+})
+</script>

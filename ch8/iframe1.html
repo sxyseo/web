@@ -1,0 +1,26 @@
+<input id="text" type="text" value="Bonjour！">
+<button onclick="sendMsg()">发送信息给最右→</button><br>
+<script>
+var port
+function sendMsg() {
+  var message = document.getElementById('text').value
+
+  if (!port) {
+    alert('信息发送失败，目前没有可用端口！')
+  } else {
+    port.postMessage(message)
+  }
+
+  return false
+}
+window.addEventListener('message', function(e) {
+  // 扩大端口范围
+  if (e.origin == 'http://localhost:3000') {
+    port = e.ports[0]
+  } else {
+    alert(e.origin + '这厮我不认识哈！')
+  }
+}, false)
+
+window.parent.postMessage('发送页加载完毕', '/')
+</script>

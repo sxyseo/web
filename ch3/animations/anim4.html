@@ -1,0 +1,61 @@
+<html>
+<head>
+  <style type="text/css">
+  #div1 {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    background: #ccc;
+    padding: 5px;
+  }
+  .slidein {
+    -webkit-animation-duration: 3s;
+    -webkit-animation-name: slidein;
+    -webkit-animation-iteration-count: 3;
+    -webkit-animation-direction: alternate;
+  }
+
+  @-webkit-keyframes slidein {
+    from {
+      margin-left:100%;
+    }
+    to {
+      margin-left:0%;
+    }
+  }
+  </style>
+</head>
+<body>
+  <div id="div1">
+    飘动
+  </div>
+  <ul id="output">
+  </ul>
+  <script>
+    function listener(e) {
+      var l = document.createElement("li");
+      switch(e.type) {
+        case "webkitAnimationStart":
+          l.innerHTML = "Started: elapsed time is " + e.elapsedTime;
+          break;
+        case "webkitAnimationEnd":
+          l.innerHTML = "Ended: elapsed time is " + e.elapsedTime;
+          break;
+        case "webkitAnimationIteration":
+          l.innerHTML = "New loop started at time " + e.elapsedTime;
+          break;
+      }
+      document.getElementById("output").appendChild(l);
+    }
+
+    function setup() {
+      var e = document.getElementById("div1");
+      e.addEventListener("webkitAnimationStart", listener, false);
+      e.addEventListener("webkitAnimationEnd", listener, false);
+      e.addEventListener("webkitAnimationIteration", listener, false);
+      e.className = "slidein";
+    }
+    setup()
+  </script>
+</body>
+</html>

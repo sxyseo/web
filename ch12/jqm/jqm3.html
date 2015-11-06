@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../assets/jquery.mobile.css">
+</head>
+<body>
+  <div data-role="page" id="foo">
+    <div data-role="header">
+      <h1>Foo</h1>
+    </div>
+    <div data-role="content">
+      <p>第一个页面：foo</p>
+      <p>跳转至 <a href="#bar">bar</a></p>
+    </div>
+    <div data-role="footer">
+      <h4>foo Footer</h4>
+    </div>
+  </div>
+
+  <div data-role="page" id="bar">
+    <div data-role="header">
+      <h1>Bar</h1>
+    </div>
+    <div data-role="content">
+      <p>第二个页面：bar</p>
+      <p>返回到 <a href="#foo">foo</a> 页面</p>
+    </div>
+    <div data-role="footer">
+      <h4>bar Footer</h4>
+    </div>
+  </div>
+  <script src="../../jquery.js"></script>
+  <script src="../assets/jquery.mobile.js"></script>
+</body>
+</html>

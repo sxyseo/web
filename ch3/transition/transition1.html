@@ -1,0 +1,45 @@
+<html>
+<head>
+  <title></title>
+  <style>
+    #div1 {
+      width: 40px;
+      height: 40px;
+      position: relative;
+      background: #ccc;
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+<div id="div1">
+  hover
+  右移
+</div>
+<script>
+var div = document.getElementById('div1'), timer1, timer2
+div.onmouseover = function (e) {
+  clearInterval(timer2)
+  timer1 = setInterval(function () {
+    var curLeft = parseInt(div.style.left) || 0
+    if (curLeft > 100) {
+      clearInterval(timer1)
+    } else {
+      div.style.left = curLeft + 1
+    }
+  }, 2)
+}
+div.onmouseout = function (e) {
+  clearInterval(timer1)
+  var timer2 = setInterval(function () {
+    var curLeft = parseInt(div.style.left) || 0
+    if (curLeft <= 0) {
+      clearInterval(timer2)
+    } else {
+      div.style.left = curLeft - 1
+    }
+  }, 2)
+}
+</script>
+</body>
+</html>

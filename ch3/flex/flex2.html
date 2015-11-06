@@ -1,0 +1,35 @@
+<html>
+<head>
+  <title></title>
+</head>
+<style>
+.flex-box {
+  /* 容器 */
+  width: 400px;
+  height: 300px;
+  display: -webkit-flex;
+  -webkit-flex-flow: column-reverse;
+  background: #ddd;
+}
+.flex-box > div {
+
+  outline: 1px solid gray;
+}
+.A {
+  -webkit-flex: 1;
+}
+.B {
+  -webkit-flex: 2;
+}
+.C  {
+  -webkit-flex: 1;
+}
+</style>
+<body>
+  <div class="flex-box">
+    <div class="A"> A </div>
+    <div class="B"> B </div>
+    <div class="C"> C </div>
+  </div>
+</body>
+</html>

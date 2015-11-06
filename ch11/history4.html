@@ -1,0 +1,21 @@
+<script src="plugins/native.history.js"></script>
+<script>
+(function(window,undefined){
+
+    // History对象是history.js提供的唯一对象，它拥有和window.history 几乎一样的API
+    History.Adapter.bind(window,'statechange',function(){ // 为避免冲突将事件命名为statechange而不是popstate
+        var state = History.getState() // 使用 History.getState() 而不是 event.state
+        console.log(state)
+    })
+    //
+    History.pushState({state:1}, 'title 1', '?state=1') // log: {state:1}, 'title 1', '?state=1'
+    History.pushState({state:2}, 'title 2', '?state=2') // log: {state:2}, 'title 2', '?state=2'
+    History.replaceState({state:3}, 'title 3', '?state=3') // log: {state:3}, 'title 3', '?state=3'
+    History.pushState(null, null, '?state=4') // log: {}, '', '?state=4'
+    History.back() // log: {state:3}, 'title 3', '?state=3'
+    History.back() // log: {state:1}, 'title 1', '?state=1'
+    History.back() // log: {}, 'Home Page', '?'
+    History.go(2) // log: {state:3}, 'title 3', '?state=3'
+
+})(window)
+</script>

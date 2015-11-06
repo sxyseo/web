@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../assets/jquery.mobile.css">
+  <meta charset="utf-8">
+</head>
+<body>
+  <div id="home-page" data-role="page">
+    <div data-role="content">
+      <form>
+        <label for="textinput-2">Text Input:</label>
+        <input type="text" name="textinput-2" id="textinput-2" placeholder="Text input" value="">
+        <!-- type="search"的文本域会自动加上搜索图标 -->
+        <label for="search-2">Search Input:</label>
+        <input type="search" name="search-2" id="search-2" value="">
+        <label for="textarea-2">Textarea:</label>
+        <textarea cols="40" rows="8" name="textarea-2" id="textarea-2">Textarea</textarea>
+        <!-- data-clear-btn是jQuery Mobile表单的增强选项 -->
+        <label for="number-2">Number: data-clear-btn="true"</label>
+        <input type="number" data-clear-btn="true" name="number-2" id="number-2" value="">
+        <label for="date-2">Date: data-clear-btn="true"</label>
+        <input type="date" data-clear-btn="true" name="date-2" id="date-2" value="">
+        <label for="file-2">File: data-clear-btn="true"</label>
+        <input type="file" data-clear-btn="true" name="file-2" id="file-2" value="">
+      </form>
+    </div>
+  </div>
+  <script src="../../jquery.js"></script>
+  <script src="../assets/jquery.mobile.js"></script>
+</body>
+</html>

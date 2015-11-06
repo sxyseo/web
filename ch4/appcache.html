@@ -1,0 +1,93 @@
+<script>
+function getAppCacheStatus() {
+  var appCache = window.applicationCache;
+  // status 是一个整数，appCache上定义了一系列常量表示缓存的状态
+  switch (appCache.status) {
+    // UNCACHED === 0，未缓存状态，表示应用缓存对象还没有初始化完成。
+    case appCache.UNCACHED:
+      return 'UNCACHED';
+      break;
+    // IDLE === 1，空闲状态，应用缓存此时未处于更新过程中。
+    case appCache.IDLE:
+      return 'IDLE';
+      break;
+    // CHECKING === 2，检查状态，清单已经获取完毕并检查更新。
+    case appCache.CHECKING:
+      return 'CHECKING';
+      break;
+    // DOWNLOADING === 3，下载资源并准备加入到缓存中，这是由于清单文件变化引起的。
+    case appCache.DOWNLOADING:
+      return 'DOWNLOADING';
+      break;
+    // UPDATEREADY === 4，更新就绪状态，一个新版本的应用缓存可以使用。
+    // 该状态有一个对应的事件 updateready，当下载完毕一个更新，并且还未使用 swapCache() 方法激活更新时，该事件触发，而不会是 cached 事件。
+    case appCache.UPDATEREADY:
+      return 'UPDATEREADY';
+      break;
+    // OBSOLETE === 5，废弃状态，应用缓存现在被废弃。
+    case appCache.OBSOLETE:
+      return 'OBSOLETE';
+      break;
+    default:
+      return 'UKNOWN CACHE STATUS';
+      break;
+  };
+}
+</script>
+
+<script>
+// load 事件后再进行监听。
+window.addEventListener('load', function(e) {
+
+  window.applicationCache.addEventListener('updateready', function(e) {
+    if (getAppCacheStatus() === 'UPDATEREADY') {
+      // 此时浏览器已经下载好了需要被缓存的文件
+      // 调用swapCache()方法以填充
+      window.applicationCache.swapCache();
+      // 在重新加载页面之前，最好提示用户
+      if (confirm('本程序有更新，是否刷新？')) {
+        window.location.reload();
+      }
+    } else {
+      // 此时manifest文件无更新。
+    }
+  }, false);
+}, false);
+</script>
+
+<script>
+function handleCacheEvent(e) {
+  //...
+}
+
+function handleCacheError(e) {
+  alert('Error: Cache failed to update!');
+};
+
+// manifest第一次加载缓存时会触发
+appCache.addEventListener('cached', handleCacheEvent, false);
+
+// 正在检查更新，这个事件永远是第一个触发的。
+appCache.addEventListener('checking', handleCacheEvent, false);
+
+// 有更新，浏览器正在下载资源文件
+appCache.addEventListener('downloading', handleCacheEvent, false);
+
+// 当这些情况出现时会触发error事件：
+// 1. manifest文件返回404或者410状态时
+// 2. 下载资源失败时
+// 3. 正在下载资源文件时却发现manifest文件更新了时
+appCache.addEventListener('error', handleCacheError, false);
+
+// 第一次下载manifest文件之后触发
+appCache.addEventListener('noupdate', handleCacheEvent, false);
+
+// manifest文件返回404或者410状态，此时缓存将会被删除
+appCache.addEventListener('obsolete', handleCacheEvent, false);
+
+// 每一个资源文件在获取时都会触发一次progress事件
+appCache.addEventListener('progress', handleCacheEvent, false);
+
+// 最近一次manifest资源被重新下载时触发
+appCache.addEventListener('updateready', handleCacheEvent, false);
+</script>

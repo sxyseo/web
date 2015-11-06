@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hammer.js | gallery</title>
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+  <style>
+  /* 一些 reset css 代码 */
+  html, body, ul, li{
+    padding: 0;
+    margin: 0;
+  }
+  #carousel, #carousel ul, #carousel li  {
+    height: 600px;
+    position: relative;
+  }
+  #carousel {
+    background: black;
+    overflow: hidden;
+    width:100%;
+    /* backface-visibility 的意思是在对元素进行变换时，如果元素的“正面”看不到了（比如使用 rotate 时），那么就隐藏整个元素
+       这在处理flip这样的翻转特效时有用。 */
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translate3d(0,0,0) scale3d(1,1,1);
+    /* preserve-3d 指定元素的子元素应该在3D空间中进行定位 */
+    -webkit-transform-style: preserve-3d;
+  }
+
+  /* 增加一个额外的动画样式，在切换版面时使用
+     使用CSS动画能在移动设备中获得比较好的性能 */
+  #carousel ul.animate {
+    -webkit-transition: all .3s;
+  }
+
+  #carousel ul {
+    -webkit-transform: translate3d(0%,0,0) scale3d(1,1,1);
+    overflow: hidden;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform-style: preserve-3d;
+  }
+
+  #carousel ul {
+    box-shadow: 0 0 20px rgba(0,0,0,.2);
+    position: relative;
+  }
+  #carousel li {
+    float: left;
+    text-align: center;
+    overflow: hidden;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform: translate3d(0,0,0);
+  }
+
+  #carousel li img {
+    color: #fff;
+    font-size: 30px;
+    text-shadow: -1px -1px 0 rgba(0,0,0,.2);
+    max-height: 100%;
+  }
+  #carousel li img.animate {
+    -webkit-transition: all .3s;
+  }
+  </style>
+</head>
+
+<body>
+  <div id="carousel">
+    <ul>
+      <li class="pane1"><img src="../assets/img1.jpg" alt=""></li>
+      <li class="pane2"><img src="../assets/img2.jpg" alt=""></li>
+      <li class="pane3"><img src="../assets/img3.jpg" alt=""></li>
+      <li class="pane4"><img src="../assets/img4.jpg" alt=""></li>
+      <li class="pane5"><img src="../assets/img5.jpg" alt=""></li>
+    </ul>
+  </div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
+<script src="hammer.js"></script>
+<script src="carousel-img.js"></script>
+<script>
+var carousel = new Carousel("#carousel")
+carousel.init()
+// 防止本身页面滚动
+document.ontouchstart = function(e){
+    e.preventDefault();
+}
+</script>
+</body>
+</html>

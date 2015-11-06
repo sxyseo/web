@@ -1,0 +1,66 @@
+<style>
+body {
+  padding: 100px;
+}
+.cube {
+  width: 200px;
+  height: 200px;
+  /* 透视深度*/
+  -webkit-perspective: 250px;
+  /* preseve-3d指定元素的子元素在3d空间内定位 */
+  -webkit-transform-style: preserve-3d;
+  /* 指定用户从哪个方向看过来的 */
+  -webkit-perspective-origin: -100% -50%;
+}
+
+.cube > div {
+  display: block;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  font-size: 60px;
+  color: white;
+  text-align: center;
+}
+.middle {
+  /* middle 用来展示基准面 */
+  border: 1px dashed black;
+  background: transparent;
+}
+.front {
+  border: none;
+  background: rgba(   0, 0, 0, 0.3 );
+  -webkit-transform: translateZ( 50px );
+}
+.back {
+  background: rgba(   0, 255,   0, 1 );
+  -webkit-transform: translateZ( -50px );
+}
+.right {
+  background: rgba( 196,   0,   0, 0.7 );
+  -webkit-transform: rotateY( 90deg) translateZ( 50px );
+}
+.left {
+  background: rgba(   0,   0, 196, 0.7 );
+  -webkit-transform: rotateY(-90deg) translateZ( 50px );
+}
+.top {
+  background: rgba( 196, 196,   0, 0.7 );
+  -webkit-transform: rotateX( 90deg) translateZ( 50px );
+}
+.bottom {
+  background: rgba( 196,   0, 196, 0.7);
+  -webkit-transform: rotateX( -90deg) translateZ( 50px );
+}
+</style>
+
+<div class="cube">
+  <div class="middle"></div>
+  <div class="front">1</div>
+  <div class="back">2</div>
+  <div class="right">3</div>
+  <div class="left">4</div>
+  <div class="top">5</div>
+  <div class="bottom">6</div>
+</div>

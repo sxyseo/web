@@ -1,0 +1,33 @@
+<button id="findMe">查找我的位置</button>
+<div id="output"></div>
+<script>
+function geoFindMe() {
+  var output = document.getElementById('output');
+  if (!navigator.geolocation){
+    output.innerHTML = '<p>当前浏览器不支持地理位置查询！！</p>';
+    return;
+  }
+  function success(position) {
+    var latitude  = position.coords.latitude
+    var longitude = position.coords.longitude
+    latText = latitude >= 0 ? '北' : '南'
+    lonText = longitude >= 0 ? '东' : '西'
+    output.innerHTML = '当前位置：<br> ' + latText + '维 ' + Math.abs(latitude) + '° <br> ' +
+      lonText + '经' + Math.abs(longitude) + '°</p>'
+
+    var img = new Image()
+    img.src =  'http://maps.googleapis.com/maps/api/staticmap?center=' + latitude + ',' + longitude
+      + '&zoom=13&size=300x300&sensor=false&markers='+ latitude + ',' + longitude
+
+    output.appendChild(img)
+  }
+  function error(err) {
+    output.innerHTML = 'Unable to retrieve your location'
+  }
+  output.innerHTML = '<p>Locating…</p>'
+  navigator.geolocation.getCurrentPosition(success, error)
+}
+document.getElementById('findMe').addEventListener('click', function (e) {
+  geoFindMe()
+})
+</script>

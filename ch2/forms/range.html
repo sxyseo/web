@@ -1,0 +1,13 @@
+<input type="range" min="-100" max="100" value="0" step="10" name="power" list="powers">
+<datalist id="powers">
+ <option value="0" />
+ <option value="-30" />
+ <option value="30" />
+ <option value="++50" />  <!-- 无效的值不会产生刻度 -->
+</datalist>
+
+<input type="range" name="a" list="a-values">
+<datalist id="a-values">
+ <option value="10" label="Low">
+ <option value="90" label="High">
+</datalist>

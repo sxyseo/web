@@ -1,0 +1,50 @@
+/* 普通屏幕使用 960的宽度 */
+.row {
+  width: 960px;
+}
+.row:after {
+  clear: left;
+  content: '';
+  display: table; /* 清除行中浮动 */
+}
+[class^="col"] {
+  float: left;
+}
+.col1 {
+  width: 25%;
+}
+.col2 {
+  width: 50%;
+}
+.col3 {
+  width: 75%;
+}
+
+/* 屏幕设备宽度大于 1200px 时row宽度固定为 1170px */
+@media (min-width: 1200px) {
+  .row {
+    width: 1170px;
+  }
+}
+
+/* 对于平板电脑每行宽度为 724px */
+@media (min-width: 768px) and (max-width: 979px) {
+  .row {
+    width: 724px;
+  }
+}
+
+/* 横屏的手机或者竖屏的平板 */
+@media (max-width: 767px) {
+  [class^="col"] {
+    float: none;
+    width: 100%;
+  }
+  .row {
+    width: 100%;
+  }
+}
+/* 竖屏的手机 */
+@media (max-width: 480px) {
+  /* 这里是可能一些微调 */
+}

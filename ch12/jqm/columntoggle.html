@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../assets/jquery.mobile.css">
+  <meta charset="utf-8">
+</head>
+<body>
+  <div data-role="page">
+    <div data-role="content">
+
+<table data-role="table" id="table-column-toggle" data-mode="columntoggle" class="ui-responsive table-stroke">
+  <thead>
+   <tr>
+    <!-- 随着屏幕变窄，列会按照优先级从低（5）到高（1）消失 -->
+     <th data-priority="2">Rank</th>
+     <th>Movie Title</th>
+     <th data-priority="3">Year</th>
+     <th data-priority="1"><abbr title="Rotten Tomato Rating">Rating</abbr></th>
+     <th data-priority="5">Reviews</th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr>
+     <th>1</th>
+     <td><a href="http://en.wikipedia.org/wiki/Citizen_Kane" data-rel="external">Citizen Kane</a></td>
+     <td>1941</td>
+     <td>100%</td>
+     <td>74</td>
+   </tr>
+   <tr>
+     <th>2</th>
+     <td><a href="http://en.wikipedia.org/wiki/Casablanca_(film)" data-rel="external">Casablanca</a></td>
+     <td>1942</td>
+     <td>97%</td>
+     <td>64</td>
+   </tr>
+   <tr>
+     <th>3</th>
+     <td><a href="http://en.wikipedia.org/wiki/The_Godfather" data-rel="external">The Godfather</a></td>
+     <td>1972</td>
+     <td>97%</td>
+     <td>87</td>
+   </tr>
+   <tr>
+     <th>4</th>
+     <td><a href="http://en.wikipedia.org/wiki/Gone_with_the_Wind_(film)" data-rel="external">Gone with the Wind</a></td>
+     <td>1939</td>
+     <td>96%</td>
+     <td>87</td>
+   </tr>
+  </tbody>
+</table>
+<style>
+/* 优先级为 2 的列在 320px (20em x 16px) 宽的屏幕下显示 */
+@media screen and (min-width: 20em) {
+   .my-custom-class th.ui-table-priority-1,
+   .my-custom-class td.ui-table-priority-1 {
+     display: table-cell;
+   }
+}
+/* 优先级为 2 的列在 480px (30em x 16px) 宽的屏幕下显示 */
+@media screen and (min-width: 30em) {
+   .my-custom-class  th.ui-table-priority-2,
+   .my-custom-class td.ui-table-priority-2 {
+     display: table-cell;
+   }
+}
+...你可以仿造上面继续写更多的断点样式...
+</style>
+
+    </div>
+  </div>
+  <script src="../../jquery.js"></script>
+  <script src="../assets/jquery.mobile.js"></script>
+</body>
+</html>
+

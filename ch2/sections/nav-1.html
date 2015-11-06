@@ -1,0 +1,58 @@
+nav元素从字面上就能看出定义的是导航（navigation）区块，nav元素的重要作用就是帮助用户快速导航，尤其是对于盲人用户，屏幕阅读器可以在初始化页面的时候就先阅读nav元素里的链接内容。
+例如这个页面里，nav用来表示最重要的导航：
+<body>
+ <header>
+  <h1>小明的日记本</h1>
+  <p><a href="news.html">新闻</a> -
+     <a href="blog.html">博客</a> -
+     <a href="forums.html">论坛</a></p>
+  <p>上次修改: <span>2013-04-01</span></p>
+  <nav>
+   <h1>导航</h1>
+   <ul>
+    <li><a href="articles.html">存档</a></li>
+    <li><a href="today.html">今日热门</a></li>
+    <li><a href="successes.html"></a></li>
+   </ul>
+  </nav>
+ </header>
+ <div>
+  <article>
+   <header>
+    <h1>今天好伤心</h1>
+   </header>
+   <div>
+    <p>今天一天都没有出太阳，真不好，爸爸买回两条金鱼，养在水缸淹死一条，我很伤心。.</p>
+    ......
+   </div>
+   <footer>
+    <p>Posted <time datetime="2009-10-10">Thursday</time>.</p>
+   </footer>
+  </article>
+  ...more blog posts...
+ </div>
+ <footer>
+  <p>Copyright ©
+   <span>2012</span>
+   <span>某神奇有限公司</span>
+  </p>
+  <p><a href="about.html">关于</a> -
+     <a href="policy.html">隐私权</a> -
+     <a href="contact.html">联系我们</a></p>
+ </footer>
+</body>
+nav元素里主要用来放置页面上相对重要的导航链接区块，这就意味着并不是页面上所有的导航链接都需要放在nav里面，例如很多页面都会在footer里面放一些版权声明、用户协议、联系信息等的链接，对于这些链接，虽然依然可以使用nav，但由于footer元素本身已经足够表达“底部”这样的信息，因此nav元素会显得不是很必要。
+上面这个例子，就包含多处导航链接，但是只有最重要的地方使用了nav元素。
+总之，虽然nav的使用限制不多，但切忌将目及之处所有ul ol元素都给套上nav，更何况nav其实里面不一定需要放置列表元素：
+
+<nav>
+ <h1>逛逛我的网站</h1>
+ <p>我的网站里有丰富多彩的内容，你可以看看<a href="/blog">我的博客
+ </a>，如果你想雇佣我，也可以看看我的<a href="/resume">简历</a>和
+ <a href="/works">作品</a>，</p>
+ <p>同时，作为一个摄影爱好者，我也有许多<a href="/photos">照片</a>。
+  希望你能喜欢这个网站。
+</nav>
+
+为何nav里面要放置标题元素？nav也是区块元素中的一员，从级别上来说，和section元素是一样的，只是它还表达了导航的语义，对于article和section是必须要加上标题的，nav和aside则建议加上标题。因为这样才有助于机器去生成“大纲视图”这样的最终产物。
+

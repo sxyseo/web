@@ -1,0 +1,10 @@
+<input id="text" type="text" value="你好！">
+<button onclick="sendMsg()">发送信息给iframe</button><br>
+<iframe src="iframe.html" frameborder="1"></iframe>
+<script>
+function sendMsg () {
+  var iframe = window.frames[0]
+  // 向iframe发送消息
+  iframe.postMessage(document.getElementById('text').value, '/')
+}
+</script>

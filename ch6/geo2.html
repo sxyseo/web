@@ -1,0 +1,31 @@
+<script>
+var wid, target, option
+
+function success(pos) {
+  var crd = pos.coords
+  // 保留三位小数
+  if (target.latitude === +crd.latitude.toFixed(3)
+    && target.longitude === +crd.longitude.toFixed(3)) {
+    alert.log('恭喜你找到了宝藏！')
+    navigator.geolocation.clearWatch(wid)
+  }
+}
+
+function error(err) {
+  console.warn('ERROR(' + err.code + '): ' + err.message)
+}
+
+// 宝藏在天安门广场附近
+target = {
+  latitude : 39.906,
+  longitude: 116.391,
+}
+
+options = {
+  enableHighAccuracy: false,
+  timeout: 5000,
+  maximumAge: 0
+}
+
+wid = navigator.geolocation.watchPosition(success, error, options)
+</script>

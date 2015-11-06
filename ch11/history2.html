@@ -1,0 +1,15 @@
+<button id="button1">pushState</button>
+<button id="button2">replaceState</button>
+<script>
+var state = {
+  msg : 'i have no words to say'
+}
+document.getElementById('button1').addEventListener('click', function () {
+  // 它会在历史记录中增加一条记录
+  history.pushState(state, '新标题1', 'newurl.html')
+})
+document.getElementById('button2').addEventListener('click', function () {
+  // 它会把当前的历史记录给“篡改”为你嗦指定的记录
+  history.replaceState(state, '新标题2', '/url/new')
+})
+</script>

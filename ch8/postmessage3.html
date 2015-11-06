@@ -1,0 +1,12 @@
+<iframe src="iframe1.html" frameborder="1"></iframe>
+<iframe src="iframe2.html" frameborder="1"></iframe>
+<script>
+window.addEventListener('message', function(e) {
+  if (e.origin === 'http://localhost:3000') {
+    if (e.ports.length > 0) {
+      // 在父窗口中将ports传递到iframe1中去
+      window.frames[0].postMessage('端口打开', '/', e.ports);
+    }
+  }
+}, false);
+</script>

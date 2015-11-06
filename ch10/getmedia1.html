@@ -1,0 +1,12 @@
+<video src=""></video>
+<script>
+  navigator.webkitGetUserMedia({video:true,audio:true}, function (stream) {
+   var video = document.querySelector('video')
+   video.src = window.URL.createObjectURL(stream)
+   video.onloadedmetadata = function(e) {
+      // Do something with the video here.
+   }
+  }, function (err) {
+    console.log(err)
+  })
+</script>

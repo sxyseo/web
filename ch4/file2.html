@@ -1,0 +1,68 @@
+<style>
+  .dropzone {
+    width: 200px;
+    height: 100px;
+    border: 2px dashed #ddd;
+    text-align: center;
+    padding-top: 100px;
+    color: #999;
+  }
+  .preview img {
+    width: 100px;
+    height: 100px;
+  }
+</style>
+<div id="dropzone" class="dropzone">
+  拖拽文件到此处
+</div>
+<div id="preview" class="preview">
+
+</div>
+<script>
+function handleFiles(files) {
+  var preview = document.getElementById('preview')
+  for (var i = 0; i < files.length; i++) {
+    var file = files[i]
+    // 用来过滤非图片类型
+    var imageType = /image.*/
+
+    if (!file.type.match(imageType)) {
+      continue
+    }
+    // 只能动态创建img对象来进行预览
+    var img = document.createElement("img")
+    // 将文件对象存起来
+    img.file = file
+    // 新建 FileRead 对象——是不是很简单？
+    var reader = new FileReader()
+    // FileReader在读取文件时是异步执行的（JS中许多对象都有类似API），因此需要通过绑定其load事件来访问文件读取的结果
+    // 要注意，这里使用了闭包，因为img只保存当前函数（handleFiles）内的引用，for循环并不会创建新的作用域
+    // 因此要通过一个闭包的形式拷贝一份img的引用，否则img在for循环结束后将只引用最后一次创建的img元素。
+    reader.onload = (function(aImg) {
+      return function(e) {
+        // e.target.result 包含读取到的 dataURL信息
+        aImg.src = e.target.result
+        // 将图片插入当前文档
+        preview.appendChild(aImg)
+      }
+    })(img)
+    reader.onprogress = function (e) {
+      console.log('当前已加载：' + (e.loaded / e.total * 100).toFixed(2) + '%')
+    }
+    // readAsDataURL方法将file对象读取为dataURL
+    reader.readAsDataURL(file)
+  }
+}
+var dropzone = document.getElementById('dropzone')
+dropzone.addEventListener('drop', function (e) {
+  handleFiles(e.dataTransfer.files)
+  e.preventDefault()
+  e.stopPropagation()
+}, false)
+dropzone.addEventListener('dragover', function (e) {
+  if (e.preventDefault) {
+    e.preventDefault()
+  }
+  return false
+}, false)
+</script>

@@ -1,0 +1,18 @@
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<style>
+  div {
+    /* 不要忘了给容器加上透视深度 */
+    -webkit-perspective: 250px;
+  }
+</style>
+<div style="text-align:center;padding-top:50px;">
+  <img src="../iphone.png" id="iphone" alt="" width="200">
+</div>
+
+<script>
+  var iphone = document.getElementById('iphone')
+  window.addEventListener('deviceorientation', function(e) {
+    // 如果你左右倾斜手机，屏幕上的手机也会左右摇（e.gamma），如果前后倾斜，屏幕上的手机则会相对屏幕前后转动（-e.beta）
+    iphone.style.webkitTransform = "rotate(" + e.gamma + "deg) rotate3d(1,0,0, " + (e.beta * -1) + "deg)"
+  }, true)
+</script>

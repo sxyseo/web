@@ -1,0 +1,53 @@
+<style>
+  .dropzone {
+    width: 200px;
+    height: 100px;
+    border: 2px dashed #ddd;
+    text-align: center;
+    padding-top: 100px;
+    color: #999;
+  }
+  .preview img {
+    width: 100px;
+    height: 100px;
+  }
+</style>
+<div id="dropzone" class="dropzone">
+  拖拽文件到此处
+</div>
+<div id="preview" class="preview">
+
+</div>
+<script>
+function handleFiles(files) {
+  var preview = document.getElementById('preview')
+  for (var i = 0; i < files.length; i++) {
+    var file = files[i]
+    // 用来过滤非图片类型
+    var imageType = /image.*/
+
+    if (!file.type.match(imageType)) {
+      continue
+    }
+    var img = document.createElement("img")
+    img.src = window.URL.createObjectURL(file);
+    img.onload = function(e) {
+      // 图片onload之后已经存在于内存之中，因此无须再引用文件句柄（或描述符）
+      window.URL.revokeObjectURL(this.src);
+    }
+    preview.appendChild(img);
+  }
+}
+var dropzone = document.getElementById('dropzone')
+dropzone.addEventListener('drop', function (e) {
+  handleFiles(e.dataTransfer.files)
+  e.preventDefault()
+  e.stopPropagation()
+}, false)
+dropzone.addEventListener('dragover', function (e) {
+  if (e.preventDefault) {
+    e.preventDefault()
+  }
+  return false
+}, false)
+</script>

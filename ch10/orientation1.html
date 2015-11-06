@@ -1,0 +1,12 @@
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+alpha: <span id="alpha"></span><br>
+beta:  <span id="beta"></span><br>
+gamma: <span id="gamma"></span><br>
+
+<script>
+  window.addEventListener('deviceorientation', function(e) {
+    document.getElementById('alpha').textContent = e.alpha
+    document.getElementById('beta').textContent = e.beta
+    document.getElementById('gamma').textContent = e.gamma
+  }, true)
+</script>

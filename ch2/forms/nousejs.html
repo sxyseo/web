@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>测试表单</title>
+</head>
+<body>
+  <form id="userinfo" action="/url/to/server">
+    告诉我你的用户信息吧，亲~
+    <br>
+    <label>
+      Email:
+      <input required name="email" type="email" ></label>
+    <br>
+    <label>
+      电话:
+      <input required pattern="\d+" name="phone" type="text" ></label>
+    <br>
+    <input type="submit"  value="提交"></form>
+</body>
+</html>

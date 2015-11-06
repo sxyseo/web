@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../assets/jquery.mobile.css">
+  <meta charset="utf-8">
+</head>
+<body>
+  <div data-role="page">
+    <div data-role="content">
+
+<div data-role="collapsible-set" data-theme="c" data-content-theme="d">
+  <div data-role="collapsible">
+    <h3>Section 1</h3>
+    <p>I'm the collapsible content for section 1</p>
+  </div>
+  <div data-role="collapsible">
+    <h3>Section 2</h3>
+    <p>I'm the collapsible content for section 2</p>
+  </div>
+  <div data-role="collapsible">
+    <h3>Section 3</h3>
+    <p>I'm the collapsible content for section 3</p>
+  </div>
+</div>
+
+<div data-role="collapsible-set"
+    data-iconpos="right"
+    data-mini="true"
+    data-theme="a" data-content-theme="a"
+    data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d"
+    >
+    <div data-role="collapsible">
+        <h3>Icon set on the set</h3>
+        <p>Specify the open and close icons on the set to apply it to all the collapsibles within.</p>
+    </div>
+    <div data-role="collapsible">
+        <h3>Icon set on the set</h3>
+        <p>This collapsible also gets the icon from the set.</p>
+    </div>
+    <!-- 你也可以为每一个 collapsible 单独设置 data-* 属性 -->
+    <div data-role="collapsible"
+        data-iconpos="left" data-collapsed-icon="gear" data-expanded-icon="delete"
+        data-theme="e" data-content-theme="e">
+        <h3>Icon set on this collapsible</h3>
+        <p>The icons here are applied to this collapsible specifically, thus overriding the set icons.</p>
+    </div>
+</div>
+
+<div data-role="collapsible-set" data-corners="false" data-theme="c" data-content-theme="d">
+    <div data-role="collapsible">
+        <h3>Section 1</h3>
+        <p>Collapsible content</p>
+    </div>
+    <div data-role="collapsible">
+        <h3>Section 2</h3>
+        <p>Collapsible content</p>
+    </div>
+    <div data-role="collapsible">
+        <h3>Section 3</h3>
+        <p>Collapsible content</p>
+    </div>
+</div>
+
+    </div>
+  </div>
+  <script src="../../jquery.js"></script>
+  <script src="../assets/jquery.mobile.js"></script>
+</body>
+</html>

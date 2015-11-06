@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../assets/jquery.mobile.css">
+  <meta charset="utf-8">
+</head>
+<body>
+  <div id="home-page" data-role="page">
+    <div data-role="content">
+      <form>
+
+        <label for="checkbox-0">Check me </label>
+        <input type="checkbox" id="checkbox-0" name="checkbox-0">
+
+        <label for="checkbox-mini-0">I agree</label>
+        <input type="checkbox" name="checkbox-mini-0" id="checkbox-mini-0" class="custom" data-mini="true">
+
+        <!-- 成组的checkbox -->
+        <fieldset data-role="controlgroup">
+            <legend>Vertical:</legend>
+            <input type="checkbox" name="checkbox-v-2a" id="checkbox-v-2a">
+            <label for="checkbox-v-2a">One</label>
+            <input type="checkbox" name="checkbox-v-2b" id="checkbox-v-2b">
+            <label for="checkbox-v-2b">Two</label>
+            <input type="checkbox" name="checkbox-v-2c" id="checkbox-v-2c">
+            <label for="checkbox-v-2c">Three</label>
+        </fieldset>
+
+        <!-- 勾选icon可以放在右边 -->
+        <fieldset data-role="controlgroup" data-iconpos="right" >
+            <legend>Icon in right & mini:</legend>
+            <input type="checkbox" name="checkbox-h-6a" id="checkbox-h-6a" data-mini="true">
+            <label for="checkbox-h-6a">One</label>
+            <input type="checkbox" name="checkbox-h-6b" id="checkbox-h-6b" data-mini="true">
+            <label for="checkbox-h-6b">Two</label>
+            <input type="checkbox" name="checkbox-h-6c" id="checkbox-h-6c" data-mini="true">
+            <label for="checkbox-h-6c">Three</label>
+        </fieldset>
+
+        <!-- 水平成组的checkbox的行为更像“不会弹起来的按钮” -->
+        <fieldset data-role="controlgroup" data-type="horizontal">
+            <legend>Horizontal:</legend>
+            <input type="checkbox" name="checkbox-h-2a" id="checkbox-h-2a">
+            <label for="checkbox-h-2a">One</label>
+            <input type="checkbox" name="checkbox-h-2b" id="checkbox-h-2b">
+            <label for="checkbox-h-2b">Two</label>
+            <input type="checkbox" name="checkbox-h-2c" id="checkbox-h-2c">
+            <label for="checkbox-h-2c">Three</label>
+        </fieldset>
+
+        <fieldset data-role="controlgroup">
+            <legend>Swatch A:</legend>
+            <input type="checkbox" name="checkbox-t-2a" id="checkbox-t-2a" data-theme="a">
+            <label for="checkbox-t-2a">One</label>
+            <input type="checkbox" name="checkbox-t-2b" id="checkbox-t-2b" data-theme="b">
+            <label for="checkbox-t-2b">Two</label>
+            <input type="checkbox" name="checkbox-t-2c" id="checkbox-t-2c" data-theme="c">
+            <label for="checkbox-t-2c">Three</label>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+  <script src="../../jquery.js"></script>
+  <script src="../assets/jquery.mobile.js"></script>
+</body>
+</html>

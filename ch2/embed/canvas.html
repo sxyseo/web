@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=utf-8 />
+  <title>JS Bin</title>
+</head>
+<body>
+  <canvas width="800" height="450"></canvas>
+  <script>
+
+  // 调用 canvas 元素的 getContext('2d') 方法获取绘图上下文。
+  var context = document.getElementsByTagName('canvas')[0].getContext('2d');
+  
+  var lastX = context.canvas.width * Math.random();
+  var lastY = context.canvas.height * Math.random();
+  var hue = 0;
+  // line 函数用来绘制一条曲线
+  function line() {
+    // save() 方法把当前状态的一份拷贝压入到一个保存图像状态的栈中。
+    // 这就允许您临时地改变图像状态，然后，通过调用 restore() 来恢复以前的值。
+    context.save();
+    // translate() 方法重新映射画布上的远点坐标(0,0)位置。
+    // 此例中将原点从 canvas 的左上角移动到了中心
+    context.translate(context.canvas.width / 2, context.canvas.height / 2);
+    // scale() 方法缩放当前绘图，更大或更小。
+    context.scale(0.9, 0.9);
+    context.translate(-context.canvas.width / 2, -context.canvas.height / 2);
+    // beginPath() 方法开始一条路径，或重置当前的路径。
+    // 配合使用 moveTo()、lineTo()、quadricCurveTo()、bezierCurveTo()、arcTo() 以及 arc() 这些方法来创建路径。
+    context.beginPath();
+    // lineWidth 属性设置或返回当前线条的宽度，以像素计。
+    context.lineWidth = 5 + Math.random() * 10;
+    // moveTo() 将以相对于远点左边(lastX, lastY) 的位置移动当前画笔笔触
+    context.moveTo(lastX, lastY);
+    lastX = context.canvas.width * Math.random();
+    lastY = context.canvas.height * Math.random();
+    // bezierCurveTo() 为一个画布的当前子路径添加一条三次贝塞尔曲线。
+    // 语法是：bezierCurveTo(cpX1, cpY1, cpX2, cpY2, x, y)
+    // 这条曲线的开始点是画布的当前点，而结束点是 (x, y)。
+    // 两条贝塞尔曲线控制点 (cpX1, cpY1) 和 (cpX2, cpY2) 定义了曲线的形状。
+    // 当这个方法返回的时候，当前的位置为 (x, y)。
+    // 
+    context.bezierCurveTo(
+      context.canvas.width * Math.random(), context.canvas.height * Math.random(),
+      context.canvas.width * Math.random(), context.canvas.height * Math.random(),
+      lastX, lastY);
+    // 选取一个随机色调（hue）
+    hue = hue + 10 * Math.random();
+    // strokeStyle 属性设置或返回用于绘图笔触的颜色、渐变或模式。
+    // 此处 使用 hsl格式将笔触设置为一个饱和度和亮度都为50%的随机颜色
+    context.strokeStyle = 'hsl(' + hue + ', 50%, 50%)';
+    // 给笔触加上阴影和高斯模糊，实现光晕的效果
+    context.shadowColor = 'white';
+    context.shadowBlur = 10;
+    // 绘制整条路径
+    context.stroke();
+    // 恢复绘图上下文
+    context.restore();
+  }
+  // 每隔五十毫秒绘制一条线
+  setInterval(line, 50);
+  // 绘制背景
+  function background() {
+    // 填充样式设置为半透明黑色
+    context.fillStyle = 'rgba(0,0,0,0.1)';
+    // 填充整个画布
+    context.fillRect(0, 0, context.canvas.width, context.canvas.height);
+  }
+  // 每隔四十毫秒以半透明的笔触重绘整个画布，这样可以实现已绘制的线条渐隐的效果
+  setInterval(background, 40);
+  </script>
+</body>
+</html>

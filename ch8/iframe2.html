@@ -1,0 +1,15 @@
+<div id="message"></div>
+<script>
+var msgBox = document.getElementById('message')
+// 创建一个新的 MessageChannel 对象
+var channel = new MessageChannel()
+
+// 给父级发送一个端口
+window.parent.postMessage('iframe2加载完毕', '/', [channel.port1])
+
+// 显示发送的信息
+channel.port2.addEventListener('message', function(e) {
+  msgBox.innerHTML = '接受到的信息是：' + e.data
+}, false)
+channel.port2.start()
+</script>

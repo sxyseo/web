@@ -1,0 +1,49 @@
+<style>
+  .dropzone {
+    width: 200px;
+    height: 100px;
+    border: 2px dashed #ddd;
+    text-align: center;
+    padding-top: 100px;
+    color: #999;
+  }
+</style>
+<div id="dropzone" class="dropzone">
+  拖拽文件到此处
+</div>
+<div id="output" class="output">
+
+</div>
+<script>
+function getFileInfo(file) {
+  var aMultiples = ["KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"], sizeinfo
+  var info = '文件名：' + file.name ;
+  // 计算文件大小的近似值
+  for (var nMultiple = 0, nApprox = file.size / 1024; nApprox > 1; nApprox /= 1024, nMultiple++) {
+    sizeinfo = nApprox.toFixed(3) + " " + aMultiples[nMultiple] + " (" + file.size + " bytes)";
+  }
+  info += "；大小：" + sizeinfo
+  info += "；类型：" + file.type
+
+  return info + '<br>'
+}
+
+var dropzone = document.getElementById('dropzone')
+dropzone.addEventListener('drop', function (e) {
+  var html = '您一共选择了 ' + e.dataTransfer.files.length + '个文件，文件信息如下：<br>';
+  [].forEach.call(e.dataTransfer.files, function (file) {
+    html += getFileInfo(file)
+  })
+  document.getElementById('output').innerHTML = html
+  e.preventDefault()
+  e.stopPropagation()
+}, false)
+dropzone.addEventListener('dragover', function (e) {
+  if (e.preventDefault) {
+    // 必须要阻止dragover的默认行为（即不可drop），这样才能进行drop操作。
+    // 否则不会触发drop事件
+    e.preventDefault()
+  }
+  return false
+}, false)
+</script>

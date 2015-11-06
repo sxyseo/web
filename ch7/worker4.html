@@ -1,0 +1,19 @@
+<span id="iam"></span> <button onclick="sayHI()">say hi!</button>
+<div id="output">
+</div>
+<script>
+  function sayHI() {
+    worker.port.postMessage({'cmd': 'hi', 'msg': '大家好！<br>', 'id': id});
+  }
+  var output = document.getElementById('output')
+  // 生成一个随机的 ID，取时间的后四位
+  var id = ('' + Date.now()).substr(-4, 4)
+  console.log(id)
+  document.getElementById('iam').innerHTML = '我的编号是：' + id
+
+  var worker = new SharedWorker('shared-worker.js');
+  worker.port.addEventListener('message', function (e) {
+    output.innerHTML += e.data
+  }, false)
+  worker.port.start()
+</script>

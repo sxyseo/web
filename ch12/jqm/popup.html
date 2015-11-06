@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../assets/jquery.mobile.css">
+  <meta charset="utf-8">
+</head>
+<body>
+<script>
+// var popup = new Popup('buttonId')
+// popup.setTitle('this is popup title')
+// popup.setContent('this is popup content')
+// popup.show()
+</script>
+  <div data-role="page">
+    <div data-role="content">
+
+<!-- <a href="#popupBasic" data-rel="popup" data-role="button" data-inline="true" data-transition="slide">Basic Popup</a> -->
+<div data-role="popup" id="popupBasic">
+  <p>This is a completely basic popup, no options set.</p>
+</div>
+
+<br>
+
+<a href="#popupParis" data-rel="popup" data-position-to="window" data-transition="fade">
+  <img src="../assets/paris.jpg" alt="Paris, France" style="width:30%"></a>
+<a href="#popupSydney" data-rel="popup" data-position-to="window" data-transition="fade">
+  <img src="../assets/sydney.jpg" alt="Sydney, Australia" style="width:30%"></a>
+<!-- data-overlay-theme 若指定了主题，则会在 popup 层后加上与主题颜色对应的半透明覆盖层 -->
+<div data-role="popup" id="popupParis" data-overlay-theme="a" data-theme="d" data-corners="false">
+  <!-- data-rel="back" 意味着这是一个“返回” 按钮，data-iconpos="notext"的作用是隐藏按钮文本 -->
+  <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+  <img src="../assets/paris.jpg" style="max-height:512px;" alt="Paris, France">
+</div>
+<div data-role="popup" id="popupSydney" data-overlay-theme="e" data-theme="d" data-corners="false">
+  <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+  <img src="../assets/sydney.jpg" style="max-height:512px;" alt="Sydney, Australia">
+</div>
+
+<!-- window: 相对于窗口的中间 -->
+<a href="#positionWindow" data-role="button" data-inline="true" data-rel="popup" data-position-to="window">Position to window</a>
+<!-- 相对于被点击链接元素的中间（tooltip最适用） -->
+<a href="#positionOrigin" data-role="button" data-inline="true" data-rel="popup" data-position-to="origin">Position to origin</a>
+<!-- 相对于特定元素 -->
+<a href="#positionSelector" data-role="button" data-inline="true" data-rel="popup" data-position-to="#position-header">Position to #position-header</a>
+<div data-role="popup" id="positionWindow" class="ui-content" data-theme="d">
+  <p>I am positioned to the window.</p>
+</div>
+<div data-role="popup" id="positionOrigin" class="ui-content" data-theme="d">
+  <p>I am positioned over the origin.</p>
+</div>
+<div data-role="popup" id="positionSelector" class="ui-content" data-theme="d">
+  <p>I am positioned over the header for this section via a selector. If the header isn't scrolled into view, collision detection will place the popup so it's in view.</p>
+</div>
+
+
+    </div>
+  </div>
+  <script src="../../jquery.js"></script>
+  <script src="../assets/jquery.mobile.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<html>
+<head>
+  <meta charset="utf8">
+  <!-- 在触屏一定记得禁止缩放，否则 touch 事件会很混乱，难以管理 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <style>
+  body {
+    color:white;
+    background-color: #222;
+  }
+  /* 给光点加上像光点的样式 */
+  .spot {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    border-radius: 35px;
+    box-shadow: 0px 0px 40px #fff;
+    background-color: #fff;
+    opacity: .7;
+  }
+  </style>
+</head>
+<body>
+  这里有一些不怎么重要的文字
+  <script>
+  var spot = null
+// touch 所有类型事件都会冒泡，在document上绑定touch事件是一种简单粗暴的处理方式
+document.addEventListener('touchstart', function (e) {
+  // 如果阻止了 touchstart 的默认行为，后续的 mousedown、click 事件将不会触发。
+  e.preventDefault()
+  // 如果已经生成小光点了，就直接返回
+  if (spot) {
+    return
+  }
+  spot = document.createElement('div')
+  spot.classList.add('spot')
+  // 减去 35 是让“光点”能够位于手指的中间
+  spot.style.top = e.touches[0].pageY - 35
+  spot.style.left = e.touches[0].pageX - 35
+  document.body.appendChild(spot)
+
+}, false)
+
+document.addEventListener('touchmove', function (e) {
+  // 如果阻止了 touchmove 的默认行为，后续的 mousemove 事件将不会触发。
+  e.preventDefault()
+  if (spot) {
+    spot.style.top = e.touches[0].pageY - 35
+    spot.style.left = e.touches[0].pageX - 35
+  }
+})
+document.addEventListener('touchend', function (e) {
+  // 如果阻止了 touchend 的默认行为，后续的 mouseup、click 事件将不会触发。
+  e.preventDefault()
+  if (spot) {
+    // 删除这个“光点”
+    document.body.removeChild(spot)
+    spot = null
+  }
+})
+</script>
+</body>
+</html>

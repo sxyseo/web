@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../assets/jquery.mobile.css">
+  <meta charset="utf-8">
+</head>
+<body>
+  <div id="home-page" data-role="page">
+    <div data-role="content">
+      <form>
+        <label for="select-choice-8" class="select">Multi-select with optgroups, custom icon and position:</label>
+        <select name="select-choice-8" id="select-choice-8" multiple="multiple" data-native-menu="false" data-icon="grid" data-iconpos="left">
+            <option>Choose a few options:</option>
+            <optgroup label="USPS">
+                <option value="standard" selected="">Standard: 7 day</option>
+                <option value="rush">Rush: 3 days</option>
+                <option value="express">Express: next day</option>
+                <option value="overnight">Overnight</option>
+            </optgroup>
+            <optgroup label="FedEx">
+                <option value="firstOvernight">First Overnight</option>
+                <option value="expressSaver">Express Saver</option>
+                <option value="ground">Ground</option>
+            </optgroup>
+        </select>
+      </form>
+    </div>
+  </div>
+  <script src="../../jquery.js"></script>
+  <script src="../assets/jquery.mobile.js"></script>
+</body>
+</html>

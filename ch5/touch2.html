@@ -1,0 +1,75 @@
+<meta charset="utf8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<style>
+  body{
+    color:white;
+    background-color: #222;
+  }
+  .spot {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    border-radius: 35px;
+    box-shadow: 0px 0px 40px #fff;
+    background-color: #fff;
+    opacity: .7;
+  }
+</style>
+这里有一些不怎么重要的文字
+<div class="spot">
+
+</div>
+<script>
+var spots = {}, touches, timer
+document.addEventListener('touchstart', function (e) {
+  e.preventDefault()
+  ;[].forEach.call(e.targetTouches, function (touch) {
+    // 对每一根触摸在屏幕上都手指都生成一个元素，并且用 touch.identifier 作为该元素的唯一标识，以在触摸结束后清除引用的元素
+    if (spots[touch.identifier]) {
+      return
+    }
+    var spot = spots[touch.identifier] = document.createElement('div')
+    spot.classList.add('spot')
+    spot.style.top = touch.pageY - 35
+    spot.style.left = touch.pageX - 35
+    document.body.appendChild(spot)
+  })
+  // 任何一根手指的移动都会导致touchmove事件触发很多次
+  // 这里使用一个 timer 来减少渲染光点的开支
+  // 使用16ms是因为 1000 ÷ 16 ≈ 60fps
+  timer = setInterval(function() {
+    renderTouches(touches);
+  }, 16);
+}, false)
+
+document.addEventListener('touchmove', function (e) {
+  e.preventDefault()
+  touches = e.touches
+})
+function renderTouches (touches) {
+  if (!touches) {
+    return
+  }
+  ;[].forEach.call(touches, function (touch) {
+    var spot = spots[touch.identifier]
+    if (spot) {
+      spot.style.top = touch.pageY - 35
+      spot.style.left = touch.pageX - 35
+    }
+  })
+}
+document.addEventListener('touchend', function (e) {
+  e.preventDefault()
+  // changedTouches 存储了变化了的指头，在 touchend 事件代表着离开屏幕的指头
+  ;[].forEach.call(e.changedTouches, function (touch) {
+    var spot = spots[touch.identifier]
+    if (spot) {
+      document.body.removeChild(spot)
+      delete spots[touch.identifier]
+    }
+  })
+  if (e.changedTouches.length === 0) {
+    clearInterval(timer)
+  }
+})
+</script>

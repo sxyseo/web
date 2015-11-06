@@ -1,0 +1,48 @@
+<div id="myDiv1" class="draggable" style="background:red;width:100px;height:100px;position:absolute"></div>
+<div id="myDiv2" class="draggable" style="background:blue;width:100px;height:100px;position:absolute;left:100px"></div>
+<script type="text/javascript">
+var DragDrop = function() {
+  var dragging = null // 利用 dragging 保存正在被拖动的元素
+
+  function handleEvent(event) {
+    var target = event.target
+
+    switch (event.type) {
+      case "mousedown":
+        // 页面所有带有draggable class的元素都可以被拖动。
+        if (target.className.indexOf("draggable") > -1) {
+          dragging = target
+        }
+        break
+      case "mousemove":
+        if (dragging !== null) {
+          // 事件对象的 clienX、clientY 表示鼠标指针相对于浏览器页面的坐标
+          dragging.style.left = event.clientX + "px"
+          dragging.style.top = event.clientY + "px"
+        }
+        break
+
+      case "mouseup":
+        // 释放拖放状态
+        dragging = null
+        break
+    }
+  }
+
+  // 公开的接口，启用/禁用拖动只需要调用一个方法。
+  return {
+    enable: function() {
+      document.addEventListener("mousedown", handleEvent)
+      document.addEventListener("mousemove", handleEvent)
+      document.addEventListener("mouseup", handleEvent)
+    },
+
+    disable: function() {
+      document.addEventListener("mousedown", handleEvent)
+      document.addEventListener("mousemove", handleEvent)
+      document.addEventListener("mouseup", handleEvent)
+    }
+  }
+}()
+DragDrop.enable()
+</script>

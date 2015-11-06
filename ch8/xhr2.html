@@ -1,0 +1,14 @@
+<script>
+var xhr = new XMLHttpRequest();
+xhr.open('GET', '/test.json', true);
+xhr.responseType = 'json';
+
+xhr.onload = function(e) {
+  if (this.status == 200) {
+    // 此时this.response是一个JSON对象
+    document.body.innerHTML = this.response[0].name
+  }
+};
+
+xhr.send();
+</script>

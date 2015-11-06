@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../assets/jquery.mobile.css">
+  <meta charset="utf-8">
+</head>
+<body>
+  <div data-role="page">
+<div data-role="content">
+  <!-- 默认情况下listview会充满屏幕，这意味着在 content里的listview会有 -15px 的边距 -->
+  <ul data-role="listview">
+    <li>Acura</li>
+    <li>Audi</li>
+    <li>BMW</li>
+  </ul>
+  <br><br><br>
+
+  <ol data-role="listview">
+    <li>BMW</li>
+    <li>Cadillac</li>
+    <li>Ferrari</li>
+  </ol>
+
+<br>
+<br>
+<br>
+
+<ul data-role="listview">
+  <li><a href="#">Acura</a></li>
+  <li><a href="#">Audi</a></li>
+  <li><a href="#">BMW</a></li>
+</ul>
+
+<br>
+<br>
+<br>
+
+<ul data-role="listview" data-inset="true">
+  <li><a href="#">Acura</a></li>
+  <li><a href="#">Audi</a></li>
+  <li><a href="#">BMW</a></li>
+</ul>
+
+<ul data-role="listview" data-filter="true" data-filter-placeholder="Search fruits..." data-inset="true">
+  <li><a href="#">Apple</a></li>
+  <li><a href="#">Banana</a></li>
+  <li><a href="#">Cherry</a></li>
+  <li><a href="#">Cranberry</a></li>
+  <li><a href="#">Grape</a></li>
+  <li><a href="#">Orange</a></li>
+</ul>
+
+<ul data-role="listview" data-inset="true" data-divider-theme="d">
+  <li data-role="list-divider">Mail</li>
+  <li><a href="#">Inbox</a></li>
+  <li><a href="#">Outbox</a></li>
+  <li data-role="list-divider">Contacts</li>
+  <li><a href="#">Friends</a></li>
+  <li><a href="#">Work</a></li>
+</ul>
+
+
+<ul data-role="listview" data-count-theme="c" data-inset="true">
+  <li><a href="#">Inbox <span class="ui-li-count">12</span></a></li>
+  <li data-icon="gear"><a href="#">Settings</a></li>
+  <!-- 加上 ui-li-icon 的图片会自动应用 16x16 的图标样式 -->
+  <li><a href="#"><img src="../assets/us.png" alt="United States" class="ui-li-icon ui-corner-none">Language</a></li>
+  <!-- 列表中的图像会自动缩放为 80×80 的规格 -->
+  <li><a href="#">
+    <img src="../assets/album-bb.jpg">
+    <h2>Broken Bells</h2>
+    <p>Broken Bells</p></a>
+  </li>
+</ul>
+
+
+<ul data-role="listview" data-inset="true">
+  <li data-role="list-divider">Friday, October 8, 2010 <span class="ui-li-count">2</span></li>
+  <li><a href="index.html">
+    <h2>Stephen Weber</h2>
+    <p><strong>You've been invited to a meeting at Filament Group in Boston, MA</strong></p>
+    <p>Hey Stephen, if you're available at 10am tomorrow, we've got a meeting with the jQuery team.</p>
+    <!-- ui-li-aside 是个很有用的 class -->
+    <p class="ui-li-aside"><strong>6:24</strong>PM</p>
+  </a></li>
+  <li data-theme="e"><a href="index.html">
+    <h2>jQuery Team</h2>
+    <p><strong>Boston Conference Planning</strong></p>
+    <p>In preparation for the upcoming conference in Boston, we need to start gathering a list of sponsors and speakers.</p>
+    <p class="ui-li-aside"><strong>9:18</strong>AM</p>
+  </a></li>
+  <li data-role="list-divider">Thursday, October 7, 2010 <span class="ui-li-count">1</span></li>
+  <!-- 如果有一个 li 元素里有两个 a 元素，jQueryMobile会将两个按钮自动分开（split button） -->
+  <li><a href="index.html">
+    <h2>Avery Walker</h2>
+    <p><strong>Re: Dinner Tonight</strong></p>
+    <p>Sure, let's plan on meeting at Highland Kitchen at 8:00 tonight. Can't wait! </p>
+    <p class="ui-li-aside"><strong>4:48</strong>PM</p>
+  </a>
+  <a href="#">Purchase album</a>
+  </li>
+</ul>
+
+</div>
+  </div>
+  <script src="../../jquery.js"></script>
+  <script src="../assets/jquery.mobile.js"></script>
+</body>
+</html>
+

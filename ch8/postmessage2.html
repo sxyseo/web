@@ -1,0 +1,15 @@
+<button onclick="openWin()">打开新窗口</button>
+<script>
+function openWin() {
+  var popup = window.open('iframe.html')
+  // 这里必须要等一会儿才能向目标窗口发送消息，因为目标窗口可能还未加载完毕
+  setTimeout(function () {
+    popup.postMessage('hello there!', '/')
+  }, 100)
+}
+window.addEventListener('message', function (e){
+  if (e.origin !== 'http://localhost:8000') return
+
+  console.log(e.data) // "我收到你的消息了！"
+}, false)
+</script>

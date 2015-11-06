@@ -1,0 +1,28 @@
+<html>
+<head>
+  <title></title>
+  <style>
+    #div1 {
+      width: 40px;
+      height: 40px;
+      position: relative;
+      background: #ccc;
+      padding: 5px;
+    }
+  </style>
+  <script src="../../jquery.js"></script>
+</head>
+<body>
+<div id="div1">
+  hover
+  右移
+</div>
+<script>
+$('#div1').mouseenter(function (e) {
+  $(this).stop().animate({'left': 100})
+}).mouseleave(function (e) {
+  $(this).stop().animate({'left': 0})
+})
+</script>
+</body>
+</html>

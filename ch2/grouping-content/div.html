@@ -1,0 +1,21 @@
+div本身是没有任何语义的，因此使用上也十分灵活，过去div的应用十分广泛，不过由于html5新增了许多语义化的元素，div的不再是首要选择，甚至，div成为了最后考虑的选择——比如在你需要添加特定样式的时候。
+不过div也不是完全没有语义，配合class、lang、title等属性可以为连续的内容增添语义：
+<article lang="en-US">
+  <!-- 文章定义为美式英语 -->
+ <h1>My use of language and my cats</h1>
+ <p>My cat's behavior hasn't changed much since her absence, except
+ that she plays her new physique to the neighbors regularly, in an
+ attempt to get pets.</p>
+ <div lang="en-GB">
+  <!-- 这两个段落里的内容为英式英语
+       虽然你可以为两个 p 元素分别加上lang属性，但显然使用div作为其容器来改变语义更加方便 -->
+  <p>My other cat, coloured black and white, is a sweetie. He followed
+  us to the pool today, walking down the pavement with us. Yesterday
+  he apparently visited our neighbours. I wonder if he recognises that
+  their flat is a mirror image of ours.</p>
+  <p>Hm, I just noticed that in the last paragraph I used British
+  English. But I'm supposed to write in American English. So I
+  shouldn't say "pavement" or "flat" or "colour"...</p>
+ </div>
+ <p>I should say "sidewalk" and "apartment" and "color"!</p>
+</article>

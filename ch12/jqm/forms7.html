@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../assets/jquery.mobile.css">
+  <meta charset="utf-8">
+</head>
+<body>
+  <div id="home-page" data-role="page">
+    <div data-role="content">
+      <form>
+        <label>
+            <input type="radio" name="radio-choice-0" id="radio-choice-0a">One
+        </label>
+        <label for="radio-choice-0b">Two</label>
+        <input type="radio" name="radio-choice-0" id="radio-choice-0b" class="custom">
+
+        <!-- 虽然radio button也可以分离展示，但成组的radio更容易让用户理解界面的设计意图 -->
+        <fieldset data-role="controlgroup">
+          <legend>Vertical:</legend>
+          <input type="radio" name="radio-choice-v-2" id="radio-choice-v-2a" value="1" checked="checked">
+          <label for="radio-choice-v-2a">One</label>
+          <input type="radio" name="radio-choice-v-2" id="radio-choice-v-2b" value="2">
+          <label for="radio-choice-v-2b">Two</label>
+          <input type="radio" name="radio-choice-v-2" id="radio-choice-v-2c" value="3">
+          <label for="radio-choice-v-2c">Three</label>
+        </fieldset>
+
+        <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+          <legend>Horizontal:</legend>
+          <input type="radio" name="radio-choice-h-2" id="radio-choice-h-2a" value="1" checked="checked">
+          <label for="radio-choice-h-2a">One</label>
+          <input type="radio" name="radio-choice-h-2" id="radio-choice-h-2b" value="2">
+          <label for="radio-choice-h-2b">Two</label>
+          <input type="radio" name="radio-choice-h-2" id="radio-choice-h-2c" value="3">
+          <label for="radio-choice-h-2c">Three</label>
+        </fieldset>
+
+        <fieldset data-role="controlgroup" data-type="horizontal" data-iconpos="right" data-mini="true">
+          <legend>Horizontal:</legend>
+          <input type="radio" data-theme="e" name="radio-choice-h-3" id="radio-choice-h-2a" value="1" checked="checked">
+          <label for="radio-choice-h-2a">One</label>
+          <input type="radio" data-theme="e" name="radio-choice-h-3" id="radio-choice-h-2b" value="2">
+          <label for="radio-choice-h-2b">Two</label>
+          <input type="radio" data-theme="e" name="radio-choice-h-3" id="radio-choice-h-2c" value="3">
+          <label for="radio-choice-h-2c">Three</label>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+  <script src="../../jquery.js"></script>
+  <script src="../assets/jquery.mobile.js"></script>
+</body>
+</html>

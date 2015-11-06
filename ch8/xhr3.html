@@ -1,0 +1,63 @@
+<script>
+function sendText(txt, callback) {
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', '/server', true);
+  xhr.responseType = 'text';
+  xhr.onload = callback
+  xhr.send(txt);
+}
+
+sendText('test string', function(e) {
+  if (this.status == 200) {
+    console.log(this.response);
+  }
+});
+</script>
+
+<script>
+function sendForm(form) {
+  var formData = new FormData(form);
+  // 可以在已有表单的基础上继续附加数据
+  formData.append('token', '1c2b9b');
+
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', '/server', true);
+  xhr.onload = function(e) { ... };
+
+  xhr.send(formData);
+}
+sendForm(document.getElementById('form1'))
+</script>
+
+<script>
+function uploadFiles(url, files) {
+  var formData = new FormData();
+
+  for (var i = 0, file; file = files[i]; i++) {
+    formData.append(file.name, file);
+  }
+
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', url, true);
+  xhr.onload = function(e) { ... };
+
+  // send方法被调用时，会自动构建multipart/form-data类型的请求
+  xhr.send(formData);
+}
+// 绑定文件表单的change事件，选定文件后自动上传
+document.querySelector('input[type="file"]').addEventListener('change', function(e) {
+  uploadFiles('/server', this.files);
+}, false);
+</script>
+
+<script>
+function upload(blobOrFile) {
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', '/server', true);
+  xhr.onload = function(e) { ... };
+  xhr.send(blobOrFile);
+}
+var int16Array = new Int16Array(16)
+var blob = new Blob([int16Array])
+upload(blob);
+</script>

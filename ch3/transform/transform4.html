@@ -1,0 +1,52 @@
+<style>
+html {
+  /*background: #ddd;*/
+  padding: 100px;
+}
+body {
+  background: white;
+  width: 600px;
+  -webkit-perspective: 100px;
+}
+.wrap {
+  border: 2px dashed gray;
+  margin: 20px;
+  margin-bottom: 40px;
+  width: 200px;
+  float: left;
+  position: relative;
+}
+.wrap > div {
+  width: 200px;
+  height: 60px;
+  background: yellow;
+}
+.des {
+  position: absolute;
+  bottom: -40px;
+}
+.div1 {
+  /* 参数前三个值分别表示旋转时基于的 x、y、z 轴的坐标，取值为number */
+  -webkit-transform: rotate3d(1, 2.0, 3.0, 10deg);
+}
+.div2 {
+  /* 三个参数表示元素基于x、y、z轴移动的长度值，其中z轴上的移动在视觉上依赖于页面透视空间的深度 */
+  -webkit-transform: translate3d(10px, -20px, -10px);
+}
+.div3 {
+  /* 同样针对x、y、z轴进行缩放，要注意z轴的缩放和元素在z轴上的位置相关 */
+  -webkit-transform: scale3d(0.8, 1.2, 2)  translateZ(5px);
+}
+</style>
+<div class="wrap">
+  <div class="div1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, similique.</div>
+  <span class="des">rotate3d</span>
+</div>
+<div class="wrap">
+  <div class="div2">Odio, impedit illum unde numquam aperiam vel recusandae quia enim.</div>
+  <span class="des">translate3d</span>
+</div>
+<div class="wrap">
+  <div class="div3">Labore, nisi, distinctio ut deleniti esse adipisci facere aliquam aliquid?</div>
+  <span class="des">scale3d</span>
+</div>

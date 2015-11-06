@@ -1,0 +1,55 @@
+<style>
+html {
+  /*background: #ddd;*/
+  padding: 100px;
+}
+body {
+  background: white;
+  width: 600px;
+}
+.wrap {
+  border: 2px dashed gray;
+  margin: 20px;
+  margin-bottom: 40px;
+  width: 200px;
+  float: left;
+  position: relative;
+}
+.wrap > div {
+  width: 200px;
+  height: 60px;
+  background: yellow;
+}
+.des {
+  position: absolute;
+  bottom: -40px;
+}
+.div1 {
+  -webkit-transform: rotate(20deg);
+}
+.div2 {
+  -webkit-transform: skewx(30deg);
+}
+.div3 {
+  -webkit-transform: translate(20px, 10%);
+}
+.div4 {
+  -webkit-transform: scale(0.8);
+}
+</style>
+<div class="wrap">
+  <div class="div1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, similique.</div>
+  <span class="des">transform: rotate(20deg)</span>
+</div>
+<div class="wrap">
+  <div class="div2">Odio, impedit illum unde numquam aperiam vel recusandae quia enim.</div>
+  <span class="des">transform: skewx(30deg)</span>
+</div>
+<div class="wrap">
+  <div class="div3">Labore, nisi, distinctio ut deleniti esse adipisci facere aliquam aliquid?</div>
+  <span class="des">transform: translate(20px, 10%)</span>
+</div>
+<div class="wrap">
+  <div class="div4">Inventore magnam at voluptatibus molestias cum veritatis nihil harum vero.</div>
+  <span class="des">transform: scale(0.8)</span>
+</div>

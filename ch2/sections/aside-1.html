@@ -1,0 +1,96 @@
+aside元素一般用来定义和aside周围的内容有关的内容——意即你需要定义和你当前已有内容相关的内容时，就用aside。要注意的是，aside里的内容要和它所关联的内容相互独立，也就是说，他们虽然相关，但是关系不太密切，谁缺了谁都不影响各自文本含义的理解，一篇文章出现的相关广告，相关背景，引述内容等等都可以使用aside，但是像文中本该出现在括弧里的内容就不适合用aside，因为这种内容是属于文档主要内容的一部分。
+
+比如在一篇介绍苹果公司的文本中可以嵌入一段关于iphone的介绍：
+<aside>
+  <h1>iphone</h1>
+  <p>iPhone 5 如此纤薄，如此轻盈，却配备了更大的显示屏、更快的芯片、更新的无线技术、800 万像素 iSight 摄像头及更多精彩功能。</p>
+</aside>
+再比如我们经常在书籍排版中看到的引述（pull quote）：
+
+它的代码可能如：
+……
+<p>He later joined a large company, continuing on the same work.
+<q>I love my job. People ask me what I do for fun when I'm not at
+work. But I'm paid to do my hobby, so I never know what to
+answer. Some people wonder what they would do if they didn't have to
+work... but I know what I would do, because I was unemployed for a
+year, and I filled that time doing exactly what I do now.</q></p>
+<aside>
+  <q> People ask me what I do for fun when I'm not at work. But I'm
+  paid to do my hobby, so I never know what to answer. </q>
+</aside>
+<p>Of course his work — or should that be hobby? —
+isn't his only passion. He also enjoys other pleasures.</p>
+……
+
+博客网站中的边栏可以用aside，边栏里面友情链接也可以使用aside——这意味着aside也可以嵌套使用（实际上表示区块的元素几乎都可以嵌套），下例是一个结合了aside、nav等元素的博客代码：
+<body>
+<header>
+  <h1>我的博客</h1>
+  <p>一个神奇的地方</p>
+</header>
+<aside>
+  <!-- 这两个 nav 区块都和页面住内容非密切相关 -->
+  <nav>
+    <h1>My blogroll</h1>
+    <ul>
+      <li>
+        <a href="http://blog.xiaoming.com/">朋友小明的博客</a>
+      </li>
+    </ul>
+  </nav>
+  <nav>
+    <h1>文章存档</h1>
+    <ol reversed>
+      <li>
+        <a href="/last-post">最后一篇</a>
+      </li>
+      <li>
+        <a href="/first-post">第一篇</a>
+      </li>
+    </ol>
+  </nav>
+</aside>
+<aside>
+  <!-- 另一个博客里常见的边栏区块：微博插件 -->
+  <h1>来自微博</h1>
+  <blockquote cite="http://weibo.com/2656274875/z9oc4cvT7">【小行星"战神"下午2点到达近地点】今天下午2点左右，一颗名为"战神"的小行星将运行到与地球最近位置，这个"最近"的距离也有690万公里，相当于地球与月球距离的18倍。</blockquote>
+  <blockquote cite="http://weibo.com/1195031270/z9ODPoFU7">2012年12月14日是全球儿童悲伤日。世界排名前两位的经济体美国和中国在同一天发生了惨绝人寰的针对儿童的杀戮惨案</blockquote>
+</aside>
+<article>
+  <!-- 博客主区域 -->
+  <h1>4月2日，今天天气好</h1>
+  <p>然后我就不知道写什么了</p>
+  <footer>
+    <p>
+      <a href="/last-post" rel=bookmark>固定链接</a>
+    </footer>
+  </article>
+  <article>
+    <h1>4月1日，过愚人节咯！</h1>
+    <p>谁看到谁傻 X </p>
+    <aside>
+      <!-- 如果这个 aside 标签里面是友情链接，那显然是错误的，
+          但是如果是这篇博文的相关内容，那就是可以的。 -->
+      <h1>关于日记</h1>
+      <p>
+          写日记真的是件有趣的事儿，你一定会喜欢上它的。
+      </p>
+    </aside>
+    <footer>
+      <p>
+        <a href="/first-post" rel=bookmark>固定链接</a>
+      </footer>
+    </article>
+    <footer>
+      <nav>
+        <a href="/archives">存档</a>
+        —
+        <a href="/about">关于</a>
+        —
+        <a href="/copyright">Copyright</a>
+      </nav>
+    </footer>
+</body>
+
+aside典型的的误用是将sidebar

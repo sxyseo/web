@@ -1,0 +1,107 @@
+<style>
+[draggable] {
+  /* 防止可拖拽元素的文字被选中 */
+  -webkit-user-select: none;
+  user-select: none;
+  /* 可以拖拽的元素通常鼠标是十字形 */
+  cursor: move;
+}
+.box {
+  height: 150px;
+  width: 150px;
+  float: left;
+  border: 2px solid #666666;
+  background-color: #ccc;
+  margin-right: 5px;
+  border-radius: 10px;
+  text-align: center;
+}
+.box header {
+  color: #fff;
+  text-shadow: #000 0 1px;
+  box-shadow: 5px;
+  padding: 5px;
+  background: #999;
+  border-bottom: 1px solid #ddd;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.box.over {
+  border: 2px dashed #000;
+}
+</style>
+<div id="columns">
+  <div class="box" draggable="true"><header>A</header></div>
+  <div class="box" draggable="true"><header>B</header></div>
+  <div class="box" draggable="true"><header>C</header></div>
+</div>
+<script>
+function handleDragStart(e) {
+  this.style.opacity = '0.4';
+  e.dataTransfer.setData('text/html', this.innerHTML);
+  e.dataTransfer.setData('texthtml', 'this');
+  e.dataTransfer.effectAllowed = 'all';
+  var dragIcon = document.createElement('img');
+  dragIcon.src = 'http://www.w3.org/html/logo/img/mark-word-icon.png';
+  dragIcon.width = 100;
+  dragIcon.height = 100;
+  // 后两个参数表示图片相对于鼠标的偏移量
+  e.dataTransfer.setDragImage(dragIcon, -10, -10);
+}
+
+function handleDragOver(e) {
+  if (e.preventDefault) {
+    // 必须要阻止dragover的默认行为（即不可drop），这样才能进行drop操作。
+    e.preventDefault();
+  }
+  e.dataTransfer.dropEffect = "link"
+  return false;
+}
+
+function handleDragEnter(e) {
+  // 为鼠标所在当前元素加上表示hover状态的class
+  this.classList.add('over');
+}
+
+function handleDragLeave(e) {
+  // this / e.target 此时是前一个target元素（鼠标离开这个元素后会必然会进入另一个元素，此时另一个的dragenter将被触发）
+  // 鼠标离开元素时去除hover状态的class
+  this.classList.remove('over');
+}
+function handleDrag(e) {
+  // console.log('drag', this)
+}
+function handleDrop(e) {
+  // this / e.target 此时是成为放置目标的元素
+
+  if (e.stopPropagation) {
+    e.stopPropagation();
+  }
+  console.log(e.dataTransfer.getData('texthtml'));
+
+  return false;
+}
+
+function handleDragEnd(e) {
+  // this/e.target 是被拖拽的元素
+  console.log(this);
+  [].forEach.call(boxes, function (box) {
+    box.classList.remove('over');
+  });
+}
+function handleDragExit(e) {
+  console.log('dragexit', e)
+}
+var boxes = document.querySelectorAll('#columns .box');
+[].forEach.call(boxes, function(box) {
+  box.addEventListener('dragstart', handleDragStart, false);
+  box.addEventListener('dragenter', handleDragEnter, false);
+  box.addEventListener('dragover', handleDragOver, false);
+  box.addEventListener('dragleave', handleDragLeave, false);
+  box.addEventListener('drag', handleDrag, false);
+  box.addEventListener('drop', handleDrop, false);
+  box.addEventListener('dragend', handleDragEnd, false);
+  box.addEventListener('dragexit', handleDragExit, false);
+});
+</script>

@@ -1,0 +1,33 @@
+<script>
+(function ($, undefined) {
+  var defaults = {
+    'type': 'GET',
+    'url': '',
+    'data': {},
+    'timeout': 60 * 1000 // 60秒超时，通常你的服务器端间隔要短于这个时间
+    'xhrFields': {
+      'withCredentials': true // 应对跨域的情况
+    }
+  }
+  // options 保持和 $.ajax 的api一致
+  $.poll = function (options, fn) {
+    function onMessage (data) {
+      fn(data)
+      $.poll(options)
+    }
+    function onError () {
+      // 如果遇到错误，就两秒后重试
+      setTimeout(function(){
+        $.poll(options, fn)
+      }, 2000)
+    }
+    $.ajax(options)
+      .done(onMessage).fail(onError)
+  }
+})(jQuery)
+
+// 使用方法：
+$.poll({'url': '/server'}, function (data) {
+  process(data)
+})
+</script>

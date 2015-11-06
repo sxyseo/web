@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../assets/jquery.mobile.css">
+  <meta charset="utf-8">
+</head>
+<body>
+  <div data-role="page">
+    <div data-role="content">
+
+<div class="ui-grid-a">
+  <!-- ui-bar ui-bar-e 来自于 jQueryMobile 的样式，你可以在块级元素中使用它们 -->
+  <div class="ui-block-a"><div class="ui-bar ui-bar-e" style="height:60px">Block A</div></div>
+  <div class="ui-block-b"><div class="ui-bar ui-bar-e" style="height:60px">Block B</div></div>
+</div>
+
+<fieldset class="ui-grid-a">
+  <div class="ui-block-a"><button type="submit" data-theme="c">Cancel</button></div>
+  <div class="ui-block-b"><button type="submit" data-theme="b">Submit</button></div>
+</fieldset>
+
+<div class="ui-grid-b">
+  <div class="ui-block-a"><div class="ui-bar ui-bar-e" style="height:60px">Block A</div></div>
+  <div class="ui-block-b"><div class="ui-bar ui-bar-e" style="height:60px">Block B</div></div>
+  <div class="ui-block-c"><div class="ui-bar ui-bar-e" style="height:60px">Block C</div></div>
+</div>
+
+<div class="ui-grid-c">
+  <div class="ui-block-a"><div class="ui-bar ui-bar-e" style="height:60px">A</div></div>
+  <div class="ui-block-b"><div class="ui-bar ui-bar-e" style="height:60px">B</div></div>
+  <div class="ui-block-c"><div class="ui-bar ui-bar-e" style="height:60px">C</div></div>
+  <div class="ui-block-d"><div class="ui-bar ui-bar-e" style="height:60px">D</div></div>
+</div>
+
+<div class="ui-grid-d">
+  <div class="ui-block-a"><div class="ui-bar ui-bar-e" style="height:60px">A</div></div>
+  <div class="ui-block-b"><div class="ui-bar ui-bar-e" style="height:60px">B</div></div>
+  <div class="ui-block-c"><div class="ui-bar ui-bar-e" style="height:60px">C</div></div>
+  <div class="ui-block-d"><div class="ui-bar ui-bar-e" style="height:60px">D</div></div>
+  <div class="ui-block-e"><div class="ui-bar ui-bar-e" style="height:60px">E</div></div>
+</div>
+
+<br><br>
+
+
+<div class="ui-grid-b">
+  <div class="ui-block-a"><div class="ui-bar ui-bar-e" style="height:60px">A</div></div>
+  <div class="ui-block-b"><div class="ui-bar ui-bar-e" style="height:60px">B</div></div>
+  <div class="ui-block-c"><div class="ui-bar ui-bar-e" style="height:60px">C</div></div>
+  <div class="ui-block-a"><div class="ui-bar ui-bar-e" style="height:60px">A</div></div>
+  <div class="ui-block-b"><div class="ui-bar ui-bar-e" style="height:60px">B</div></div>
+  <div class="ui-block-c"><div class="ui-bar ui-bar-e" style="height:60px">C</div></div>
+  <div class="ui-block-a"><div class="ui-bar ui-bar-e" style="height:60px">A</div></div>
+  <div class="ui-block-b"><div class="ui-bar ui-bar-e" style="height:60px">B</div></div>
+  <div class="ui-block-c"><div class="ui-bar ui-bar-e" style="height:60px">C</div></div>
+</div>
+
+<div class="ui-grid-a">
+  <div class="ui-block-a"><button type="button" data-theme="c">Previous</button></div>
+  <div class="ui-block-b"><button type="button" data-theme="c">Next</button></div>
+</div>
+<div class="ui-grid-solo">
+  <div class="ui-block-a"><button type="button" data-theme="b">More</button></div>
+</div>
+
+<br><br>
+
+<div class="ui-grid-c ui-responsive">
+  <div class="ui-block-a"><div class="ui-body ui-body-d">A</div></div>
+  <div class="ui-block-b"><div class="ui-body ui-body-d">B</div></div>
+  <div class="ui-block-c"><div class="ui-body ui-body-d">C</div></div>
+  <div class="ui-block-d"><div class="ui-body ui-body-d">D</div></div>
+</div>
+<style>
+/* stack all grids below 40em (640px) */
+@media all and (max-width: 35em) {
+  .my-breakpoint .ui-block-a,
+  .my-breakpoint .ui-block-b,
+  .my-breakpoint .ui-block-c,
+  .my-breakpoint .ui-block-d,
+  .my-breakpoint .ui-block-e {
+    width: 100%;
+    float: none;
+  }
+}
+</style>
+<br>
+    </div>
+  </div>
+  <script src="../../jquery.js"></script>
+  <script src="../assets/jquery.mobile.js"></script>
+</body>
+</html>
+

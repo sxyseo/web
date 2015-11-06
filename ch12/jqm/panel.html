@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../assets/jquery.mobile.css">
+  <meta charset="utf-8">
+</head>
+<body>
+  <div data-role="page">
+
+
+<div data-role="content">
+  <!-- <a href="#panel1" data-role="button">open panel</a> -->
+  panel 有 Overlay、Reveal和 Push 三种显示的方式 ：<br>
+  <a href="#leftpanel1" data-role="button">Reveal</a>
+  <a href="#leftpanel2" data-role="button">Push</a>
+  <a href="#leftpanel3" data-role="button">Overlay</a>
+</div>
+
+<div data-role="panel" id="panel1">
+  panel content
+</div>
+
+<div data-role="panel" id="leftpanel1" data-position="left" data-display="reveal">
+  <h3>Left Panel: Reveal</h3>
+  <p>This panel is positioned on the left with the reveal display mode. The panel markup is <em>after</em> the header, content and footer in the source order.</p>
+  <p>To close, click off the panel, swipe left or right, hit the Esc key, or use the button below:</p>
+  <a href="#demo-links" data-rel="close" data-role="button" data-icon="delete" data-inline="true">Close panel</a>
+</div>
+
+<div data-role="panel" id="leftpanel2" data-position="left" data-display="push">
+  <h3>Left Panel: Push</h3>
+  <p>This panel is positioned on the left with the push display mode. The panel markup is <em>after</em> the header, content and footer in the source order.</p>
+  <p>To close, click off the panel, swipe left or right, hit the Esc key, or use the button below:</p>
+  <a href="#demo-links" data-rel="close" data-role="button"  data-icon="delete" data-inline="true">Close panel</a>
+</div>
+
+<div data-role="panel" id="leftpanel3" data-position="right" data-display="overlay" >
+  <h3>Left Panel: Overlay</h3>
+  <p>This panel is positioned on the left with the overlay display mode. The panel markup is <em>after</em> the header, content and footer in the source order.</p>
+  <p>To close, click off the panel, swipe left or right, hit the Esc key, or use the button below:</p>
+  <a href="#demo-links" data-rel="close" data-role="button"  data-icon="delete" data-inline="true">Close panel</a>
+</div>
+
+
+  </div>
+  <script src="../../jquery.js"></script>
+  <script src="../assets/jquery.mobile.js"></script>
+</body>
+</html>
+

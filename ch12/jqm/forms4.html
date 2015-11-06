@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../assets/jquery.mobile.css">
+  <meta charset="utf-8">
+</head>
+<body>
+  <div id="home-page" data-role="page">
+    <div data-role="content">
+      <form>
+        <div data-role="rangeslider">
+          <label for="range-1a">Rangeslider:</label>
+          <input type="range" name="range-1a" id="range-1a" min="0" max="100" value="40">
+          <input type="range" name="range-1b" id="range-1b" min="0" max="100" value="80">
+        </div>
+
+        <div data-role="rangeslider">
+          <label for="range-10a">Rangeslider:</label>
+          <input type="range" name="range-10a" id="range-10a" min="0" max="10" step=".1" value="2.6">
+          <label for="range-10b">Rangeslider:</label>
+          <input type="range" name="range-10b" id="range-10b" min="0" max="10" step=".1" value="5.4">
+        </div>
+
+
+        <div data-role="rangeslider" data-highlight="false">
+          <label for="range-2a">Rangeslider (default is "true"):</label>
+          <input type="range" name="range-2a" id="range-2a" min="0" max="100" value="20">
+          <label for="range-2b">Rangeslider:</label>
+          <input type="range" name="range-2b" id="range-2b" min="0" max="100" value="80">
+        </div>
+
+        <div data-role="rangeslider" data-highlight="false">
+          <label for="range-2a">Rangeslider (default is "true"):</label>
+          <input type="range" name="range-2a" id="range-2a" min="0" max="100" value="20">
+          <label for="range-2b">Rangeslider:</label>
+          <input type="range" name="range-2b" id="range-2b" min="0" max="100" value="80">
+        </div>
+
+        <div data-role="rangeslider" data-mini="true">
+          <label for="range-4a">Rangeslider:</label>
+          <input type="range" name="range-4a" id="range-4a" min="0" max="100" value="0">
+          <label for="range-4b">Rangeslider:</label>
+          <input type="range" name="range-4b" id="range-4b" min="0" max="100" value="100">
+        </div>
+
+        <div data-role="rangeslider">
+          <label for="range-5a">Rangeslider:</label>
+          <input type="range" name="range-5a" id="range-5a" disabled="disabled" min="0" max="100" value="0">
+          <label for="range-5b">Rangeslider:</label>
+          <input type="range" name="range-5b" id="range-5b" disabled="disabled" min="0" max="100" value="100">
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="../../jquery.js"></script>
+  <script src="../assets/jquery.mobile.js"></script>
+</body>
+</html>

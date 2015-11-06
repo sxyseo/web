@@ -1,0 +1,46 @@
+<script>
+var xhr = new XMLHttpRequest();
+// 别忘了第三个参数表示是否使用异步请求
+xhr.open('GET', '/image.jpg', true);
+// 这时候使用arraybuffer也是可以的
+xhr.responseType = 'blob';
+
+xhr.onload = function(e) {
+  if (this.status == 200) {
+    // 此时this.response是一个Blob对象，如果你将responseType设置为arraybuffer，那么response将自动转换成一个ArrayBuffer对象
+    var url = window.URL.createObjectURL(this.response) // 继续使用神奇的简单的ObjectURL
+    var img  = new Image()
+    img.src = url
+    document.body.appendChild(img)
+  }
+};
+
+xhr.send();
+</script>
+
+<script>
+var xhr = new XMLHttpRequest();
+// 别忘了第三个参数表示是否使用异步请求
+xhr.open('GET', '/image.jpg', true);
+// 这时候使用arraybuffer
+xhr.responseType = 'arraybuffer';
+
+xhr.onload = function(e) {
+  if (this.status == 200) {
+    // 此时this.response是一个ArrayBuffer对象
+    var uInt8Array = new Uint8Array(this.response);
+    // 现在你可以对图片进行任何奇怪的操作了，比如下面的代码会破坏jpeg图片的显示效果
+    uInt8Array[101] = 255
+    uInt8Array[100] = 255
+    uInt8Array[99] = 255
+    // 对图片原始数据进行修改之后再转回Blob对象
+    var blob = new Blob([uInt8Array])
+    var url = window.URL.createObjectURL(blob)
+    var img  = new Image()
+    img.src = url
+    document.body.appendChild(img)
+  }
+};
+
+xhr.send();
+</script>

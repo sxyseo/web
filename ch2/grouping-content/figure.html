@@ -1,0 +1,33 @@
+figure主要用来定义插图注解、图表、照片、代码列表等，通常会配合figcaption元素定义其标题或者说明：
+
+<figure>
+ <img src="beautiful-girl.jpeg"
+      alt="a beautiful girl sitting on a chair">
+ <figcaption>青春美女</figcaption>
+</figure>
+当然，figure也可以嵌套：
+<figure>
+ <figcaption>The castle through the ages: 1423, 1858, and 1999 respectively.</figcaption>
+ <figure>
+  <figcaption>Etching. Anonymous, ca. 1423.</figcaption>
+  <img src="castle1423.jpeg" alt="The castle has one tower, and a tall wall around it.">
+ </figure>
+ <figure>
+  <figcaption>Oil-based paint on canvas. Maria Towle, 1858.</figcaption>
+  <img src="castle1858.jpeg" alt="The castle now has two towers and two walls.">
+ </figure>
+ <figure>
+  <figcaption>Film photograph. Peter Jankle, 1999.</figcaption>
+  <img src="castle1999.jpeg" alt="The castle lies in ruins, the original tower all that remains in one piece.">
+ </figure>
+</figure>
+
+<figure>
+ <img src="castle1423.jpeg" title="Etching. Anonymous, ca. 1423."
+      alt="The castle has one tower, and a tall wall around it.">
+ <img src="castle1858.jpeg" title="Oil-based paint on canvas. Maria Towle, 1858."
+      alt="The castle now has two towers and two walls.">
+ <img src="castle1999.jpeg" title="Film photograph. Peter Jankle, 1999."
+      alt="The castle lies in ruins, the original tower all that remains in one piece.">
+ <figcaption>The castle through the ages: 1423, 1858, and 1999 respectively.</figcaption>
+</figure>

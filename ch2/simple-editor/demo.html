@@ -1,0 +1,21 @@
+<html>
+<head>
+  <title>简单编辑器</title>
+  <script src="../../jquery.js"></script>
+  <script src="editor.js"></script>
+</head>
+<body>
+  <h2>下面是编辑器</h2><hr>
+  <div id="editor">
+    <button id="bold"><b>加粗</b></button>
+    <button id="italic"><i>斜体</i></button>
+    <button id="underline"><u>下划线</u></button>
+    <div contenteditable="true">
+      这里面<b>已经</b>有 <i>一些</i><u>富文本</u>了
+    </div>
+  </div>
+  <script>
+    new Editor('#editor')
+  </script>
+</body>
+</html>

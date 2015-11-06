@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>测试表单</title>
+</head>
+<body>
+  <form id="userinfo" action="/url/to/server">
+    告诉我你的用户信息吧，亲~
+    <br>
+    <label>
+      Email:
+      <input name="email" type="text" ></label>
+    <br>
+    <label>
+      电话:
+      <input  name="phone" type="text" ></label>
+    <br>
+    <input type="submit"  value="提交"></form>    
+  <script type="text/javascript">
+    // 在提交表单前检测
+    document.getElementById('userinfo').onsubmit = function (e) {
+      var shouldSubmit = true
+      // 提交表单时获取表单字段的值
+      var email = this.elements.namedItem('email').value.trim()
+      var phone = this.elements.namedItem('phone').value.trim()
+
+      // 我们要确保每个字段用户都必须填写非空白值
+      if ( email === '' ) {
+        alert('Email 是必填项！')
+        shouldSubmit = false
+      }
+      if ( phone === '') {
+        alert('电话 是必填项！')
+        shouldSubmit = false
+      }
+      // 必须保证表单值的格式正确
+      // email 必须是 xx@xx的形式
+      if ( !/\w+@\w/.test(email)) {
+        alert('Email 格式不正确！')
+        shouldSubmit = false
+      }
+      // phone 必须是数字
+      if ( !/\d+/.test(phone)) {
+        alert('电话 格式不正确')
+        shouldSubmit = false
+      }
+
+      if(!shouldSubmit) {
+        // 阻止表单默认的提交事件
+        e.preventDefault()
+      }
+    }
+  </script>
+</body>
+</html>

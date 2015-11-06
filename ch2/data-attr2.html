@@ -1,0 +1,25 @@
+<script type="text/javascript" src="../jquery.js"></script>
+<div id='tree' data-leaves='47' data-plant-height='2.4m'>
+  我是一棵树
+</div>
+<script type="text/javascript">
+  var tree = document.getElementById('tree')
+  console.log(tree.dataset.leaves) // '47'
+  console.log(tree.dataset.plantHeight) // '2.4m'
+
+  tree.dataset.plantHeight = '3m'
+  tree.dataset.leaves-- // '46'
+  tree.dataset.age = 100 
+</script>
+
+<script type="text/javascript">
+var $tree = $('#tree')
+console.log($tree.data('plant-height'))// '2.4m'
+</script>
+
+<div id="q-1" data-object="{&quot;type&quot;:&quot;question&quot;,&quot;id&quot;:123,&quot;author&quot;:&quot;filod&quot;}" >
+  为什么 jQuery 这么好用？
+</div>
+<script type="text/javascript">
+  console.log($('#q-1').data('object').author) // filod
+</script>

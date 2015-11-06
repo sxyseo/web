@@ -1,0 +1,34 @@
+<html>
+<head>
+  <title></title>
+</head>
+<style>
+.header {
+  /* 容器 */
+  width: 400px;
+  display: -webkit-flex;
+}
+a {
+  text-align: center;
+  outline: 1px solid gray;
+}
+a:hover {
+  /* 鼠标移入时变宽一点点 */
+  width: 160px;
+  background: #ddd;
+}
+.A, .C{
+  -webkit-flex: 1;
+}
+.B {
+  -webkit-flex: 2;
+}
+</style>
+<body>
+  <div class="header">
+    <a class="A" href="/home">主页</a>
+    <a class="B" href="/about">关于</a>
+    <a class="C" href="/archive">存档</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<button onclick="sayHI()">Say HI</button>
+<button onclick="unknownCmd()">Send unknown command</button>
+<button onclick="stopLocal()">Stop worker local</button>
+<button onclick="stopRemote()">Stop worker remote</button>
+<output id="result"></output>
+
+<script>
+  function sayHI() {
+    worker.postMessage({'cmd': 'start', 'msg': 'Hi'});
+  }
+
+  function stopLocal () {
+    worker.terminate();
+    document.getElementById('result').textContent = 'worker 已停止';
+  }
+
+  function stopRemote() {
+    worker.postMessage({'cmd': 'stop', 'msg': 'Bye'});
+  }
+
+  function unknownCmd() {
+    worker.postMessage({'cmd': 'foobar', 'msg': '???'});
+  }
+
+  var worker = new Worker('worker.js');
+
+  worker.addEventListener('message', function(e) {
+    document.getElementById('result').textContent = e.data;
+  }, false);
+
+  // worker.postMessage(function(){})
+</script>
