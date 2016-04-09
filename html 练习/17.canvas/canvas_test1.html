@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <canvas id="canvas" width="800px" height="800px"></canvas>
+    <canvas id="myCanvas4" width="1000px" height="1000px"></canvas>
+    <script>
+        var c_img=document.getElementById("canvas");
+        var cxt_img = c_img.getContext("2d");
+        var img_rec = new Image();
+        //这样不加载图片
+        //    img.src="http://images.cnblogs.com/cnblogs_com/html5test/359114/r_test.jpg";
+        //    cxt_img.drawImage(img,0,0);
+        //img_rec.src="http://images.cnblogs.com/cnblogs_com/html5test/359114/r_test.jpg";
+        img_rec.src="./1.png";
+        img_rec.onload=function(){
+            cxt_img.drawImage(img_rec,0,0);
+        };
+        //加载图片，完成后执行刚才的函数
+        cxt_img.drawImage(img_rec,0,0);
+
+
+
+        var c=document.getElementById("myCanvas4");
+        var cxt=c.getContext("2d");
+        var img=new Image();
+        img.src="./1.png";
+        img.onload=function(){
+            cxt.drawImage(img,0,0);
+        };
+        cxt.drawImage(img,0,0);
+    </script>
+</body>
+</html>

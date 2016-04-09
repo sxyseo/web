@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>canvas绘制文字</title>
+    <style type="text/css">
+        body{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="800" height="800" ></canvas>
+<canvas id="myCanvas" width="800" height="800" style="border:1px solid #c3c3c3;">
+    Your browser does not support the canvas element.
+</canvas>
+<canvas id="myCanvas3" width="800" height="800" ></canvas>
+
+<script type="text/javascript">
+    var c=document.getElementById("canvas");
+    var cxt=c.getContext("2d");
+//    var img=new Image();
+//    img.src="1.png";
+//    cxt.drawImage(img,0,0);
+    cxt.moveTo(10,10);
+    cxt.lineTo(150,50);
+    cxt.lineTo(10,50);
+    cxt.stroke();
+    cxt.fillStyle="#FF0000";
+    cxt.beginPath();
+    cxt.arc(70,18,15,0,Math.PI*2,true);
+    cxt.closePath();
+    cxt.fill();
+    var grd=cxt.createLinearGradient(200,200,375,250);
+    grd.addColorStop(0,"#FF0000");
+    grd.addColorStop(1,"#00FF00");
+    cxt.fillStyle=grd;
+    cxt.fillRect(200,200,375,250);
+</script>
+</body>
+</html>

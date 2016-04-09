@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="canvas.js"></script>
+    <style>
+        .wp {
+            width: 960px;
+            height: 1000px;
+            margin: 0 auto;
+        }
+        #canvas {
+            margin:0 auto;
+            width: 800px;
+            height: 500px;
+        }
+        #canvasid {
+            margin:0 auto;
+            width: 800px;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wp">
+    <canvas id="canvas"></canvas>
+        <br />
+    <canvas id="canvasid"></canvas>
+    </div>
+    <script>
+        var context = document.getElementsByTagName('canvas')[0].getContext('2d');
+        var lastX = context.canvas.width * Math.random();
+        var lastY = context.canvas.height * Math.random();
+        var hue = 0;
+
+        //line 函数用来绘制一条曲线
+        function line() {
+            //save();
+            //
+            context.save();
+            //translate()
+            //
+            context.translate(context.canvas.width / 2, context.canvas.height / 2);
+            context.scale(0.9, 0.9);
+            context.translate(-context.canvas.width / 2, -context.canvas.height / 2);
+            //beginPath();
+            //lineWidth
+            context.lineWidth = 5 + Math.random() * 10;
+            //moveto();
+            context.moveTo(lastX, lastY);
+            lastX = context.canvas.width * Math.random();
+            lastY = context.canvas.height * Math.random();
+            //bezierCurveTo()
+
+            context.bezierCurveTo(
+                    context.canvas.width * Math.random(), context.canvas.height * Math.random(),
+                    context.canvas.width * Math.random(), context.canvas.height * Math.random(),
+                    lastX, lastY
+            );
+            hue = hue + 10 * Math.random();
+            context.strokeStyle = 'hsl(' + hue + ', 50%, 50%)';
+            context.shadowColor = 'white';
+            context.stroke();
+            context.restore();
+        }
+
+        setInterval(line, 50);
+        function background() {
+            context.fillStyle = 'rgba(0, 0, 0, 0.1)';
+            context.fillRect(0, 0, context.canvas.width, context.canvas.height);
+        }
+
+        setInterval(background, 40);
+
+        var canvasid = document.getElementById('canvasid');
+        var context1 = canvasid.getContext('2d');
+        context1.fillStyle = "#000";
+        context1.strokeStyle = "#f60";
+        context1.lineWidth = 5;
+        context1.fillRect(0, 0, 800, 300);
+    </script>
+</body>
+</html>

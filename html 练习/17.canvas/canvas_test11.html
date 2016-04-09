@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="cv" width="800px" height="800px"></canvas>
+<script type="text/javascript">
+    function drawBeauty(beauty){
+        var mycv = document.getElementById("cv");
+        var myctx = mycv.getContext("2d");
+        myctx.drawImage(beauty, 0, 0);
+    }
+    function load(){
+        var beauty = new Image();
+        beauty.src = "http://www.whatled.com/content/uploadfile/tpl_options/logo.png";
+        if(beauty.complete){
+            drawBeauty(beauty);
+        }else{
+            beauty.onload = function(){
+                drawBeauty(beauty);
+            };
+            beauty.onerror = function(){
+                window.alert('图片加载失败，请重试');
+            };
+        };
+    }//load
+    if (document.all) {
+        window.attachEvent('onload', load);
+    }else {
+        window.addEventListener('load', load, false);
+    }
+</script>
+
+</body>
+</html>
+
+
