@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>留言板</title>
+    <script src="liuyan.js"></script>
+</head>
+<body>
+    <p>留言板</p>
+    <!--<input type="text">-->
+    <textarea name="liuyan" id="dome" cols="60" rows="10"></textarea>
+    <br>
+    <input type="button" value="保存" onclick="saveStorage('dome')">
+    <input type="button" value="读取"  onclick="readStorage('lynr')">
+    <input type="button" value="清空" onclick="clearStorage('dome')">
+    <p id="lynr"></p>
+</body>
+</html>
