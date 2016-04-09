@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas 动画</title>
+</head>
+<body onload="draw('canvas')">
+    <canvas id="canvas" width="960px" height="500px"></canvas>
+    <script>
+        var i;
+        var y;
+        var width,height;
+
+        function draw(id) {
+            var canvas = document.getElementById(id);
+            context = canvas.getContext('2d');
+            width = canvas.width;
+            height = canvas.height;
+            setInterval(painting, 100);
+            i = 0;
+        }
+        function painting() {
+            context.fillStyle = "#fff";
+            context.clearRect(0,0,width, height);
+            context.fillStyle = "green";
+            context.fillRect( i, 10, 10, 10);
+            i = i + 20;
+        }
+//            context.fillStyle = "white";
+//            context.clearRect(0,0,width,width);
+
+
+//            setInterval(clearpainting,100);
+//            i = 0;
+//            y = 0;
+//        }
+//        function painting(){
+//         //   var context = canvas.getContext('2d');
+//            context.fillStyle = "green";
+////            context.fillRect(0, 10, 10, 10);
+//            //for(var i=0; i<1000; i++){
+//            context.fillRect(i, y+10, 10, 10);
+
+//            if( i <= 960 )
+//            {
+//                i = i + 20;
+//            }
+//            else{
+//                i = 0;
+//                //y = y + 10;
+//                y = 0;
+//            }
+//                //context.strokeRect(i, 10, 10, 10);
+//
+//            //}
+//        }
+//        function clearpainting(){
+//            //   var context = canvas.getContext('2d');
+//            //context.fillStyle = "white";
+////            context.fillRect(0, 10, 10, 10);
+//            //for(var i=0; i<1000; i++){
+//
+//
+//
+//            if(i < 960)
+//            {
+//                context.fillStyle = "white";
+//                var j = i - 200;
+//                if( j >=0 ){
+//                    context.fillRect(j, y + 10, 10, 10);
+//                }
+//                //context.fillRect(i , y + 10, 10, 10);
+//            }
+//            else
+//            {
+//                setInterval(clearpaintingend,100);
+//            }
+            //context.strokeRect(i, 10, 10, 10);
+            //}
+//        }
+
+//        function clearpaintingend(){
+//
+//            context.fillStyle = "white";
+//            for(var j =  i-200; j <=960; j ++)
+//            {
+//                context.fillStyle = "white";
+//                j = j + 20;
+//                context.fillRect(j, 10, 0, 10);
+//            }
+//
+//            i = 0;
+//
+//        }
+    </script>
+</body>
+</html>
