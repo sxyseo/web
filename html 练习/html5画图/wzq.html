@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>wzq</title>
+    <style>
+        body{
+            margin:0;
+            padding: 0;
+        }
+        div#divcan{
+            margin: 0 auto;
+            width:600px;
+            height:600px;
+            border:1px #000 solid;
+            background: url(img/bak.jpg);
+        }
+    </style>
+    <script language="javascript">
+        var maps = Array(15);
+        for(var i=0; i<15; i++)
+        {
+            maps[i] = new Array(15);
+            for(var j=0; j<15; j++)
+            {
+                maps[i][j] = 0;
+            }
+        }
+
+        var black = new Image();
+        var white = new Image();
+        black.src = "img/black.png";
+        white.src = "img/white.png";
+
+        //初始化棋盘
+        function init()
+        {
+            var can = document.getElementById("can");
+            var ctx=can.getContext("2d");
+            ctx.strokeStyle="#FFF";
+            for(var i=0; i<15; i++)
+            {
+                for(var j=0; j<15; j++)
+                {
+                    ctx.strokeRect(j*40,i*40,40,40);
+                }
+            }
+        }
+
+        function play(e) {
+            alert(e.clientX);
+        }
+    </script>
+</head>
+<body onload="init();">
+    <div id="divcan">
+    <canvas id="can" width="600px" height="600px" onclick="play(event)"></canvas>
+    </div>
+</body>
+</html>
