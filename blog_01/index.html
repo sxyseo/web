@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>xSky 实验室-关注网络编程,高性能计算,分布式系统,分布式存储</title>
+	<meta name="keywords" content="少将,少将博客,移动互联网,智能照明,开源硬件,智能家居,物联网,智慧医疗,LED,微硬件" />
+	<meta name="description" content="少将博客是一个关注开源硬件、智能家居、移动互联网的IT博客,分享移动互联网知识及运营技巧。" />
+	<link href="style.css" rel="stylesheet" type="text/css" />
+	<!-- CuFon: Enables smooth pretty custom font rendering. 100% SEO friendly. To disable, remove this section -->
+	<script type="text/javascript" src="js/cufon-yui.js"></script>
+	<script type="text/javascript" src="js/arial.js"></script>
+	<script type="text/javascript" src="js/cuf_run.js"></script>
+	<!-- CuFon ends -->
+</head>
+<body>
+	<div class="main">
+
+		<div class="header">
+			<div class="header_resize">
+				<div class="menu_nav">
+					<ul>
+						<li class="active"><a href="index.html">主页</a></li>
+						<li><a href="#">知识</a></li>
+						<li><a href="#">生活</a></li>
+						<li><a href="about.html">关于博主</a></li>
+						<li><a href="support.html">技术支持</a></li>
+						<li><a href="contact.html">联系博主</a></li>
+					</ul>
+				</div>
+				<div class="clr"></div>
+				<div class="logo"><h1><a href="index.html">X<span>Blog</span></a> <small>Simple blog, record the simple and beautiful life.</small></h1></div>
+				<div class="clr"></div>
+			</div>
+		</div>
+
+		<div class="content">
+			<div class="content_resize">
+				<div class="mainbar">
+					<div class="article">
+						<p><span class="date">Jun 11, 2016</span> 作者： <a href="#">Xsky</a> &nbsp;|&nbsp; 分类： <a href="#">服务器</a> &nbsp;|&nbsp; 标签：<a href="#">Xblog</a> &nbsp;|&nbsp; 阅读：<a href="#">1273次</a>, 评论： <a href="#" class="com">8条评论</a></p>
+						<h2>xSkyProxy-新的MySQL代理网关 xSkyProxy是什么?</h2><div class="clr"></div>
+						<img src="images/img1.jpg" width="625" height="205" alt="image" />
+						<p>xSkyProxy 是一个处于你的client端和MySQL server端之间的简单程序，它可以监测、分析或改变它们的通信。主要功能包括：负载平衡，故障、查询分析，查询过滤和修改等等。=简单的说，xSkyProxy 就是一个连接池，负责将前台应用的连接请求转发给后台的数据库，并且按照用户自定义配置的分库分表规则， 可以实现复杂的SQL路由，达到数据分库分表存储的目的; 同时也能根据用户MYSQL主从库配置信息，对读写SQL自动识别与路由， 从而实现读写分离和负载平衡。对于应用来说，xSkyProxy 是完全透明的，应用则只需要连接到 xSkyProxy 的监听端口即可。当然，这样proxy机器可能成为单点失效，但完全可以使用多个proxy机器做为冗余，在应用服务器的连接池配置中配置到多个proxy的连接参数即可。</p>
+							<p class="spec"><a href="#" class="rm">Read more &raquo;</a></p>
+						</div>
+						<div class="article">
+						<p><span class="date">Jun 10, 2016</span> 作者： <a href="#">Xsky</a> &nbsp;|&nbsp; 分类： <a href="#">服务器</a> &nbsp;|&nbsp; 标签：<a href="#">Xblog</a> &nbsp;|&nbsp; 阅读：<a href="#">1273次</a>, 评论： <a href="#" class="com">8条评论</a></p>
+							<h2><span>我的NOSQL</span> -xSkyDB</h2><div class="clr"></div>
+							<img src="images/img2.jpg" width="625" height="205" alt="image" />
+							<p> 平时一直在使用REDIS做为NOSQL数据库存储各种数据。但在使用过程中, 感觉将REDIS做为数据库使用许多的不便, 缺少很多做为数据库的基本功能，像没有表的概念，各种不同结构的数据存储在一个DB里没有明确的分类，REDIS里类似功能需要通过自定义前缀来实现。REDIS另一个不方便的地方，就是各种不同的结构操作采用不同的命令，这样就导致REDIS的命令特别多，虽然这样可以使得对每个不同的数据结构进行比较细致的区分，在功能实现上也比较容易。但带来的问题就是使用上不的便，使用中需要经常查询文档。于是，我就开发了这个NOSQL:使用REDIS的通信协议进行数据交互, 支持各种语言的CLIENT进行访问。支持数据表概念，同结构的数据通过表进行管理，支持删除表。类SQL的查询命令设计。支持数据落地。后台多线程。</p>
+							<p class="spec"><a href="#" class="rm">Read more &raquo;</a></p>
+						</div>
+						<p class="pages"><small>Page 1 of 2 &nbsp;&nbsp;&nbsp;</small> <span>1</span> <a href="#">2</a> <a href="#">&raquo;</a></p>
+					</div>
+					<div class="sidebar">
+						<div class="searchform">
+							<form id="formsearch" name="formsearch" method="post" action="">
+								<span><input name="editbox_search" class="editbox_search" id="editbox_search" maxlength="80" value="Search our ste:" type="text" /></span>
+								<input name="button_search" src="images/search_btn.gif" class="button_search" type="image" />
+							</form>
+						</div>
+						<div class="gadget">
+							<h2 class="star"><span>Sort</span> Menu</h2><div class="clr"></div>
+							<ul class="sb_menu">
+								<li><a href="#"> 知识┊服务器相关</a></li>
+								<li><a href="#"> 知识┊数据库相关</a></li>
+								<li><a href="#"> 知识┊网络相关</a></li>
+								<li><a href="#"> 知识┊算法相关</a></li>
+								<li><a href="#"> 生活┊散文相关</a></li>
+								<li><a href="#/"> 生活┊感悟相关</a></li>
+							</ul>
+						</div>
+						<div class="gadget">
+							<h2 class="star"><span>Comments</span></h2><div class="clr"></div>
+							<ul class="ex_menu">
+								<li><a href="#" title="#">xblog支持者</a><br />精神支持XSky开发Xblog</li>
+								<li><a href="#">xblog支持者</a><br />支持XSky开发Xblog &amp; 哈哈</li>
+								<li><a href="#" title="xblog支持者">xblog支持者</a><br />支持XSky开发Xblog</li>
+								<li><a href="#" title="xblog支持者">xblog支持者</a><br />支持XSky开发Xblog</li>
+								<li><a href="#" title="xblog支持者">xblog支持者</a><br />支持XSky开发Xblog &amp; Thanks</li>
+								<li><a href="#" title="xblog支持者">xblog支持者</a><br />支持XSky开发Xblog</li>
+							</ul>
+						</div>
+					</div>
+					<div class="clr"></div>
+				</div>
+			</div>
+
+			<div class="fbg">
+				<div class="fbg_resize">
+					<div class="col c1">
+						<h2><span>Image Gallery</span></h2>
+						<a href="#"><img src="images/pix1.jpg" width="58" height="58" alt="pix" /></a>
+						<a href="#"><img src="images/pix2.jpg" width="58" height="58" alt="pix" /></a>
+						<a href="#"><img src="images/pix3.jpg" width="58" height="58" alt="pix" /></a>
+						<a href="#"><img src="images/pix4.jpg" width="58" height="58" alt="pix" /></a>
+						<a href="#"><img src="images/pix5.jpg" width="58" height="58" alt="pix" /></a>
+						<a href="#"><img src="images/pix6.jpg" width="58" height="58" alt="pix" /></a>
+					</div>
+					<div class="col c2">
+						<h2><span>Lorem Ipsum</span></h2>
+						<p>Lorem ipsum dolor<br />Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum. Cras id urna. Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu posuere nunc justo tempus leo. Donec mattis, purus nec placerat bibendum, dui pede condimentum odio, ac blandit ante orci ut diam.</p>
+					</div>
+					<div class="col c3">
+						<h2><span>Contact</span></h2>
+						<p>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue.</p>
+						<p><a href="mailto:support@yoursite.com">support@yoursite.com</a></p>
+						<p>+1 (123) 444-5677<br />+1 (123) 444-5678</p>
+						<p>Address: 123 TemplateAccess Rd1</p>
+					</div>
+					<div class="clr"></div>
+				</div>
+			</div>
+			<div class="footer">
+				<div class="footer_resize">
+				<p class="lf">&copy; Copyright <a href="#">xSkyBlog xSky-Blog 1.0</a>. Collect From <a href="#" title="xSkyBlog">xSkyBlog</a></p>
+					<ul class="fmenu">
+						<li class="active"><a href="index.html">主页</a></li>
+						<li><a href="blog.html">博客</a></li>
+						<li><a href="about.html">关于博主</a></li>
+						<li><a href="support.html">技术支持</a></li>
+						<li><a href="contact.html">联系方式</a></li>
+					</ul>
+					<div class="clr"></div>
+				</div>
+			</div>
+		</div>
+	</body>
+	</html>
